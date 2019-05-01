@@ -1,0 +1,4 @@
+Sitemap: https://htp84.github.io/blog/sitemapindex.xml
+
+User-Agent: *
+Host: htp84.github.io

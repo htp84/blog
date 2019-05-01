@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python, R and TSQL comparison - Reading and writing files | Hesu's BI and Data cleaning blog</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://htp84.github.io/blog/posts/python-r-tsql-comparison-reading-writing-files/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Henric Sundberg">
+<link rel="prev" href="../python-r-tsql-compariso-basic/" title="Python, R and TSQL comparison - Basic" type="text/html">
+<link rel="next" href="../hej/" title="hej" type="text/html">
+<meta property="og:site_name" content="Hesu's BI and Data cleaning blog">
+<meta property="og:title" content="Python, R and TSQL comparison - Reading and writing files">
+<meta property="og:url" content="https://htp84.github.io/blog/posts/python-r-tsql-comparison-reading-writing-files/">
+<meta property="og:description" content="This is the second part of a series of posts showing data wrangling code in Python, R, and TSQL. This part shows read/write options for Excel and CSV. This is not directly applicable to SQL. Therefore">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-03-30T00:00:00Z">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="R">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://htp84.github.io/blog/">
+
+            <span id="blog-title">Hesu's BI and Data cleaning blog</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+                </li>
+<li class="nav-item">
+<a href="../../pages/about-me/" class="nav-link">About me</a>
+                </li>
+<li class="nav-item">
+<a href="https://github.com/htp84" class="nav-link">My Github</a>
+                </li>
+<li class="nav-item">
+<a href="https://www.linkedin.com/in/henric-sundberg-65260913b/" class="nav-link">My LinkedIn</a>
+                </li>
+<li class="nav-item">
+<a href="../../archive.html" class="nav-link">Archives</a>
+                </li>
+<li class="nav-item">
+<a href="../../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Python, R and TSQL comparison - Reading and writing files</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Henric Sundberg
+            </span></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2019-03-30T00:00:00Z" itemprop="datePublished" title="2019-03-30 00:00">2019-03-30 00:00</time></a>
+            </p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the second part of a series of posts showing data wrangling code in Python, R, and TSQL. This part shows read/write options for Excel and CSV. This is not directly applicable to SQL. Therefore, there is no column for TSQL in the table below.</p>
+<p><!-- TEASER_END -->
+Both Pandas and R can read/write many other formats than Excel and CSV which I mention in this post. For more information about them, I recommend reading the following pages:<br></p>
+<h5 id="Python">Python<a class="anchor-link" href="#Python">¶</a>
+</h5>
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">Pandas</a></li>
+</ul>
+<h5 id="R">R<a class="anchor-link" href="#R">¶</a>
+</h5>
+<ul>
+<li>
+<a href="https://readr.tidyverse.org/">readr</a> (flat files)</li>
+<li>
+<a href="https://dbplyr.tidyverse.org/articles/dbplyr.html">dbplyr</a> (databases)</li>
+</ul>
+<h4 id="Misc">Misc<a class="anchor-link" href="#Misc">¶</a>
+</h4>
+<ul>
+<li>In Python it is assumed that <em>numpy</em> is imported as <em>np</em> and <em>pandas</em> as <em>pd</em>.<br>
+</li>
+<li>In R it is assumed that the <em>tidyverse</em> library is imported.<br>
+</li>
+<li>If additional packages or installation is necessary it's specified in the table.</li>
+</ul>
+<h2 id="Reading-and-writing-files">Reading and writing files<a class="anchor-link" href="#Reading-and-writing-files">¶</a>
+</h2>
+<table>
+<thead><tr>
+<th style="text-align:left">Purpose</th>
+<th style="text-align:left">Python</th>
+<th style="text-align:left">R      </th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left">Read csv</td>
+<td style="text-align:left">
+<pre><code>FILEPATH = "path/to/file.csv"<br>df = pd.read_csv(FILEPATH)</code></pre>
+<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html">read_csv</a>
+</td>
+<td style="text-align:left"><code>FILEPATH &lt;- "path/to/file.csv"<br><br>df &lt;- read_csv(FILEPATH)<code><br><br><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></code></code></td>
+</tr>
+<tr>
+<td style="text-align:left">Write csv</td>
+<td style="text-align:left">
+<pre><code>FILEPATH = "path/to/file.xlsx"<br>d = {"dep":["a", "b", "c"],<br>      "x":[4,3,2],<br>      "y":[5,6,7]}<br>df = pd.DataFrame(data=d)<br><br>df.to_csv(FILEPATH)</code></pre>
+<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_csv.html">to_csv</a>
+</td>
+<td style="text-align:left"><code>FILEPATH &lt;- "path/to/file.csv"<br>dep &lt;- c("a", "b", "c")<br>x &lt;- c(4,3,2)<br>y &lt;- c(5,6,7)<br>df &lt;- data.frame(dep, x, y)<br><br>write_csv(df, FILEPATH)<br><br><a href="https://readr.tidyverse.org/reference/write_delim.html">write_delim</a></code></td>
+</tr>
+<tr>
+<td style="text-align:left">Read excel</td>
+<td style="text-align:left">
+<pre><code>FILEPATH = "path/to/file.xlsx"<br>SHEET = "sheet1"<br><br>df = pd.read_excel(FILEPATH, sheetname=SHEET)</code></pre>
+<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_excel.html">read_excel</a>
+</td>
+<td style="text-align:left"><code>library(readxl)<br>FILEPATH &lt;- "path/to/file.xlsx"<br>SHEET &lt;- "sheet1"<br><br>df &lt;- read_excel(FILEPATH, sheet=SHEET)<code><br><br><a href="https://readxl.tidyverse.org/">readxl</a></code></code></td>
+</tr>
+<tr>
+<td style="text-align:left">Write excel</td>
+<td style="text-align:left">
+<pre><code>FILEPATH = "path/to/file.xlsx"<br>d = {"dep":["a", "b", "c"],<br>      "x":[4,3,2],<br>      "y":[5,6,7]}<br>df = pd.DataFrame(data=d)<br><br>df.to_excel(FILEPATH)</code></pre>
+<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_excel.html">to_excel</a>
+</td>
+<td style="text-align:left"><code>library(writexl)<br>FILEPATH &lt;- "path/to/file.csv"<br>dep &lt;- c("a", "b", "c")<br>x &lt;- c(4,3,2)<br>y &lt;- c(5,6,7)<br>df &lt;- data.frame(dep, x, y)<br><br>write_xlsx(df, FILEPATH)<code><br><br>To be able to install writexl devtools must be installed via install.packages(). Also, Rtools <br>needs to be downloaded from the following link:<br><a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a><br> and writexl via the following code:<br><br><code>devtools::install_github("ropensci/writexl")<code><br><br><a href="https://github.com/ropensci/writexl">writexl</a></code></code></code></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/python/" rel="tag">Python</a></li>
+            <li><a class="tag p-category" href="../../categories/r/" rel="tag">R</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../python-r-tsql-compariso-basic/" rel="prev" title="Python, R and TSQL comparison - Basic">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../hej/" rel="next" title="hej">Next post</a>
+            </li>
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:henric.sundberg@gmail.com">Henric Sundberg</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          - Theme          <a href="https://bootswatch.com/yeti/" rel="nofollow">Yeti</a>
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/moment-with-locales.min.js"></script><!-- fancy dates --><script>
+        moment.locale("en");
+        fancydates(2, "YYYY-MM-DD HH:mm");
+        </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>
