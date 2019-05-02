@@ -10738,6 +10738,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 table {
   font-size: 0.8203125rem;
+  background: #b8d1f3;
 }
 
 .table-primary, .table-success, .table-info, .table-warning, .table-danger {
@@ -10832,6 +10833,24 @@ table {
 
 .table-hover .table-active:hover, .table-hover .table-active:hover > th, .table-hover .table-active:hover > td {
   background-color: rgba(0, 0, 0, 0.075);
+}
+
+table tr { text-align: left; }
+
+.table td{ 
+  padding:7px; border:#4e95f4 1px solid;
+}
+/* provide some minimal visual accomodation for IE8 and below */
+.table tr{
+  background: #b8d1f3;
+}
+/*  Define the background color for all the ODD background rows  */
+.table tr:nth-child(odd){ 
+  background: #b8d1f3;
+}
+/*  Define the background color for all the EVEN background rows  */
+.table tr:nth-child(even){
+  background: #dae5f4;
 }
 
 label,
