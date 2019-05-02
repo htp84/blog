@@ -1,8 +1,8 @@
 <!--
-.. title: hej
-.. slug: hej
-.. date: 2019-04-01 12:11:24 UTC
-.. tags: 
+.. title: Python, R and TSQL comparison - Cleaning data
+.. slug: python-r-tsql-comparison-cleaning-data"
+.. date: 2019-04-19 06:00:00 UTC
+.. tags: Python, R, TSQL
 .. category: 
 .. link: 
 .. description: 
