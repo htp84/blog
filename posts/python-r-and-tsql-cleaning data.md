@@ -1,12 +1,13 @@
 <!--
 .. title: Python, R and TSQL comparison - Cleaning data
-.. slug: python-r-tsql-comparison-cleaning-data"
+.. slug: python-r-tsql-comparison-cleaning-data
 .. date: 2019-04-19 06:00:00 UTC
 .. tags: Python, R, TSQL
 .. category: 
 .. link: 
 .. description: 
 .. type: text
+.. updated: 2019-05-02 08:10:00 UTC
 -->
 
 This is the third and last part of a series of posts showing data wrangling code in Python, R and TSQL. This part show different options for cleaning data.
