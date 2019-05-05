@@ -1,0 +1,44 @@
+
+/*remove input/output in jupyter*/
+.prompt {
+    font-size: 0px !important;
+  }
+
+/*************************
+Custom table design
+
+for nice information about how to design tables see:
+https://www.w3schools.com/css/css_table.asp
+*************************/
+/****
+dotted lines in table
+****/
+table, td, th {
+  border: 1px dotted grey !important;
+}
+
+/****
+add add excel colors to table
+****/
+/*  Define the background color for all the ODD background rows  */
+table tr:nth-child(odd){ 
+  background: /*#b8d1f3*/ rgb(217, 225, 242) !important;
+}
+/*  Define the background color for all the EVEN background rows  */
+table tr:nth-child(even){
+  background: rgb(255, 255, 255)!important;
+}
+th {
+  background-color: rgb(68, 114, 196);
+  color: white;
+  text-align: center !important;
+}
+
+/****
+add hover effect in table
+****/
+table tr:hover {background-color: #d4d3d3fd !important;}
+
+/*************************
+End table design
+*************************/
