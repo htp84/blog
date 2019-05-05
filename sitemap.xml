@@ -15,7 +15,7 @@
  </url>
  <url>
   <loc>https://htp84.github.io/blog/archive.html</loc>
-  <lastmod>2019-05-02T18:18:00Z</lastmod>
+  <lastmod>2019-05-05T05:44:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/categories/</loc>
@@ -46,12 +46,16 @@
   <lastmod>2019-05-01T13:00:00Z</lastmod>
  </url>
  <url>
-  <loc>https://htp84.github.io/blog/posts/hej/</loc>
-  <lastmod>2019-05-01T12:17:00Z</lastmod>
+  <loc>https://htp84.github.io/blog/posts/python-r-and-tsql-basic/</loc>
+  <lastmod>2019-05-05T05:42:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/posts/python-r-tsql-compariso-basic/</loc>
   <lastmod>2019-04-28T11:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://htp84.github.io/blog/posts/python-r-tsql-compariso-basic1/</loc>
+  <lastmod>2019-05-05T05:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/posts/python-r-tsql-comparison-cleaning-data%22/</loc>
@@ -59,10 +63,22 @@
  </url>
  <url>
   <loc>https://htp84.github.io/blog/posts/python-r-tsql-comparison-cleaning-data/</loc>
-  <lastmod>2019-04-28T11:07:00Z</lastmod>
+  <lastmod>2019-05-05T05:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://htp84.github.io/blog/posts/python-r-tsql-comparison-reading-and-writing-files/</loc>
+  <lastmod>2019-05-05T05:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/posts/python-r-tsql-comparison-reading-writing-files/</loc>
   <lastmod>2019-04-28T11:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://htp84.github.io/blog/posts/python-r-tsql-comparison-reading-writing-files1/</loc>
+  <lastmod>2019-05-05T05:20:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://htp84.github.io/blog/posts/reading-and-writing-files/</loc>
+  <lastmod>2019-05-05T05:20:00Z</lastmod>
  </url>
 </urlset>

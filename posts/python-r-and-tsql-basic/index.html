@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python, R and TSQL - Basic | Henric Sundberg</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://htp84.github.io/blog/posts/python-r-and-tsql-basic/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Henric Sundberg">
+<link rel="next" href="../python-r-tsql-comparison-reading-and-writing-files/" title="Python, R and TSQL comparison - Reading and writing files" type="text/html">
+<meta property="og:site_name" content="Henric Sundberg">
+<meta property="og:title" content="Python, R and TSQL - Basic">
+<meta property="og:url" content="https://htp84.github.io/blog/posts/python-r-and-tsql-basic/">
+<meta property="og:description" content="This is the first part of a series of articles showing data wrangling code in Python, R and TSQL that produces equivalent result. In this article I show some basic operations. 
+
+But first, an extremel">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-03-16T00:00:00Z">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="TSQL">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://htp84.github.io/blog/">
+
+            <span id="blog-title">Henric Sundberg</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+                </li>
+<li class="nav-item">
+<a href="../../pages/about-me/" class="nav-link">About me</a>
+                </li>
+<li class="nav-item">
+<a href="https://github.com/htp84" class="nav-link">My Github</a>
+                </li>
+<li class="nav-item">
+<a href="https://www.linkedin.com/in/henric-sundberg-65260913b/" class="nav-link">My LinkedIn</a>
+                </li>
+<li class="nav-item">
+<a href="../../archive.html" class="nav-link">Archives</a>
+                </li>
+<li class="nav-item">
+<a href="../../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Python, R and TSQL - Basic</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Henric Sundberg
+            </span></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2019-03-16T00:00:00Z" itemprop="datePublished" title="2019-03-16 00:00">2019-03-16 00:00</time><span class="updated"> (updated
+                    <time class="updated dt-updated" datetime="2019-05-05T08:10:00Z" itemprop="dateUpdated" title="2019-05-05 08:10">2019-05-05 08:10</time>)</span>
+            </a>
+            </p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>This is the first part of a series of articles showing data wrangling code in Python, R and TSQL that produces equivalent result. In this article I show some basic operations. <br><!-- TEASER_END --><br>
+But first, an extremely short introduction to each language.<br><br><strong>Python</strong> is a general-purpose language and can be used for a lot of things, e.g. web sites, scientific computing and system programming.<br></p>
+<p><strong>R</strong> is a language for statistical computing and graphics. Hence, it's mostly used for scientific computing.<br></p>
+<p><strong>TSQL</strong> (Transact-SQL) is a SQL-dialect used in Microsoft SQL Server. SQL (Structured Query Language) is a domain-specific language and is used for managing data stored in a relational database management system.<br><br><br>
+Python and R is pretty easy to compare while SQL lacks some of its functionality, especially functionality written in this first article.</p>
+<p>Below are some links with more information about respective language:<br><br><strong>Python:</strong></p>
+<ul>
+<li><a href="https://www.python.org/">Homepage</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Python_%28programming_language%29">Wikipedia</a></li>
+</ul>
+<p><strong>R:</strong></p>
+<ul>
+<li><a href="https://www.r-project.org/">Homepage</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R_%28programming_language%29">Wikipedia</a></li>
+</ul>
+<p><strong>TSQL:</strong></p>
+<ul>
+<li><a href="https://www.microsoft.com/en-us/sql-server/default.aspx">Homepage</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SQL">Wikipedia</a></li>
+</ul>
+<h4>Misc</h4>
+<ul>
+<li>In Python it is assumed that <em>numpy</em> is imported as <em>np</em> and <em>pandas</em> as <em>pd</em>.<br>
+</li>
+<li>In R it is assumed that the <em>tidyverse</em> library is imported.<br>
+</li>
+<li>In TSQL it is assumed that Microsoft SQL server is installed.<br>
+</li>
+<li>If additional packages or installation is necessary it's specified in the table.<br>
+</li>
+<li>If there is no apparent equivalent way of doing an operation, <em>Not applicable</em> is used.<br><br>
+</li>
+</ul>
+<h2><strong>Basic</strong></h2>
+<table>
+<thead><tr>
+<th align="left">Purpose</th>
+<th align="left">Python</th>
+<th align="left">R</th>
+<th align="left">TSQL</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">Print to console</td>
+<td align="left"><code>print("Hello")</code></td>
+<td align="left"><code>print("Hello")</code></td>
+<td align="left"><code>PRINT('Hello')</code></td>
+</tr>
+<tr>
+<td align="left">Print with variables</td>
+<td align="left"><code>name = "Henric"<br>z = "today"<br><br>print(f"Hello {name}, how are you {z}?")</code></td>
+<td align="left">
+<code>name &lt;- "Henric"<br>z &lt;- "today"<br><br>print(paste("Hello", name,", how are you", z,"?"))</code><br><br>or<br><br><code>install.packages("glue")<br>library(glue)<br><br>glue("Hello {name}, how are you {z}?")</code>
+</td>
+<td align="left"><code> DECLARE @name varchar(10)='Henric'<br>DECLARE @z varchar(10)='today'<br><br>PRINT('Hello ' + @name + ', how are you ' + @z + '?')</code></td>
+</tr>
+<tr>
+<td align="left">Creating an array</td>
+<td align="left"><code> myArray = np.array([1,2,3])</code></td>
+<td align="left"><code>myArray &lt;- c(1,2,3)</code></td>
+<td align="left">Not applicable</td>
+</tr>
+<tr>
+<td align="left">for loop</td>
+<td align="left"><code>for i in x:<br>    print(x)</code></td>
+<td align="left"><code>for {i in x} {<br>  print(i)<br>}</code></td>
+<td align="left">Not applicable</td>
+</tr>
+<tr>
+<td align="left">while loop</td>
+<td align="left"><code>x = 0<br>while x &lt; 10:<br>    print("Hello")<br>    x += 1</code></td>
+<td align="left"><code>x &lt;- 0<br>while (x&lt;10){<br>  print(x)<br>  x &lt;- x + 1<br>}</code></td>
+<td align="left"><code>DECLARE @x INT = 0<br>WHILE x&lt;10<br>BEGIN<br>  PRINT('Hello')<br>  SET @x = @x + 1<br>END</code></td>
+</tr>
+<tr>
+<td align="left">Creating a 2d matrix</td>
+<td align="left"><code>myMatrix = np.array([[1, 2, 3],[4, 5, 6]])</code></td>
+<td align="left">
+<code>myMatrix &lt;- matrix(c(1, 2 , 3, 4, 5, 6), nrow=2)</code><br><br> nrow can be changed to ncol</td>
+<td align="left">Not applicable</td>
+</tr>
+<tr>
+<td align="left">Scalar operations,<br>i.e. elementwise operations</td>
+<td align="left"><code>mat = np.array([[1,3,5],[2,4,6]])<br><br>mat + 5<br>mat - 5<br>mat  5<br>mat / 5</code></td>
+<td align="left"><code>mat &lt;- matrix(c(1,2,3,4,5,6), nrow=2)<br><br>mat + 5<br>mat - 5<br>mat  5<br>mat / 5</code></td>
+<td align="left">Not applicable</td>
+</tr>
+<tr>
+<td align="left">Array and Matrix multiplication</td>
+<td align="left">
+<code>mat1 = np.array([[1,3,5],[2,4,6]])<br>mat2 = np.array([[1,4],[2,5],[3,6]])<br><br>mat1 @ mat2</code><br><br>or<br><br><code>np.dot(mat1, mat2)</code>
+</td>
+<td align="left"><code>mat1 &lt;- matrix(c(1,2,3,4,5,6), nrow=2)<br>mat2 &lt;- matrix(c(1,2,3,4,5,6), nrow=3)<br><br>mat1 %% mat2</code></td>
+<td align="left">Not applicable</td>
+</tr>
+<tr>
+<td align="left">Creating a dataframe</td>
+<td align="left">
+<code>d = {"dep":["a", "b", "c"],<br>     "x":[4,3,2],<br>     "y":[5,6,7]}<br><br>df = pd.DataFrame(data=d)</code><br><br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">DataFrame</a>
+</td>
+<td align="left">
+<code>dep &lt;- c("a", "b", "c")<br>x &lt;- c(4,3,2)<br>y &lt;- c(5,6,7)<br><br>df &lt;- data.frame(dep, x, y)</code><br><br>or<br><br><code>df &lt;- tibble(dep, x, y)</code><br><br><a href="https://www.rdocumentation.org/packages/base/versions/3.5.1/topics/data.frame">data.frame</a><br><a href="https://tibble.tidyverse.org/">tibble</a>
+</td>
+<td align="left">Not applicable</td>
+</tr>
+<tr>
+<td align="left">Install packages</td>
+<td align="left">
+<code>pip install <em>package</em></code><br><br>or if using conda<br><br><code>conda install <em>package</em></code>
+</td>
+<td align="left"><code>install.packages("<em>package</em>")</code></td>
+<td align="left">Not applicable</td>
+</tr>
+<tr>
+<td align="left">Uninstall packages</td>
+<td align="left">
+<code>pip uninstall <em>package</em></code><br><br>or if using conda<br><br><code>conda remove <em>package</em></code>
+</td>
+<td align="left"><code>remove.packages("<em>package</em>")</code></td>
+<td align="left">Not applicable</td>
+</tr>
+<tr>
+<td align="left">Import package</td>
+<td align="left">
+<code>import <em>package</em></code><br><br>or<br><br><code>from <em>package</em> import <em>something</em></code>
+</td>
+<td align="left"><code>library(<em>package</em>)</code></td>
+<td align="left">Not applicable</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/python/" rel="tag">Python</a></li>
+            <li><a class="tag p-category" href="../../categories/r/" rel="tag">R</a></li>
+            <li><a class="tag p-category" href="../../categories/tsql/" rel="tag">TSQL</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="next">
+                <a href="../python-r-tsql-comparison-reading-and-writing-files/" rel="next" title="Python, R and TSQL comparison - Reading and writing files">Next post</a>
+            </li>
+        </ul></nav></aside></article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:henric.sundberg@gmail.com">Henric Sundberg</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          - Theme          <a href="https://bootswatch.com/yeti/" rel="nofollow">Yeti</a>
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/moment-with-locales.min.js"></script><!-- fancy dates --><script>
+        moment.locale("en");
+        fancydates(2, "YYYY-MM-DD HH:mm");
+        </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>
