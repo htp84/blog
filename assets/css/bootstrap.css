@@ -10835,23 +10835,6 @@ table {
   background-color: rgba(0, 0, 0, 0.075);
 }
 
-table tr { text-align: left; }
-
-.table td{ 
-  padding:7px; border:#4e95f4 1px solid;
-}
-/* provide some minimal visual accomodation for IE8 and below */
-.table tr{
-  background: #b8d1f3;
-}
-/*  Define the background color for all the ODD background rows  */
-.table tr:nth-child(odd){ 
-  background: #b8d1f3;
-}
-/*  Define the background color for all the EVEN background rows  */
-.table tr:nth-child(even){
-  background: #dae5f4;
-}
 
 label,
 .control-label,
