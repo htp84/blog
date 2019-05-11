@@ -898,6 +898,11 @@ th {
   text-align: center !important;
 }
 
+/*Make jupyter use full width, makes the tables look nicer.*/
+div.output_subarea {
+  max-width: 100% !important
+}
+
 /****
 add hover effect in table
 ****/
