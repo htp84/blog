@@ -17,7 +17,7 @@ import markdown as md
 
 # Data about this site
 BLOG_AUTHOR = "Henric Sundberg"  # (translatable)
-BLOG_TITLE = "Henric Sundberg"  # (translatable)
+BLOG_TITLE = "Data-Sci Wannabe"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "https://htp84.github.io/blog/"
@@ -141,8 +141,8 @@ NAVIGATION_LINKS = {
         ("/index.html", "Home"),
         ("/pages/about-me/", "About me"),
         # ("/rss.xml", "RSS feed"),
-        ("https://github.com/htp84", "My Github"),
-        ("https://www.linkedin.com/in/henric-sundberg-65260913b/", "My LinkedIn"),
+        ("https://github.com/htp84", "Github"),
+        ("https://www.linkedin.com/in/henric-sundberg-65260913b/", "LinkedIn"),
         ("/archive.html", "Archives"),
         ("/categories/index.html", "Tags"),
     )
