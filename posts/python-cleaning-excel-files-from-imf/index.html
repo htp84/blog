@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Python - Cleaning excel files from the International Monetary Fund | Data-Sci Wannabe</title>
+<title>Python - Cleaning excel files from the International Monetary Fund | Henric Sundberg</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -14,12 +14,13 @@
 <link rel="canonical" href="https://htp84.github.io/blog/posts/python-cleaning-excel-files-from-imf/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Henric Sundberg">
 <link rel="prev" href="../python-r-tsql-comparison-cleaning-data/" title="Python, R and TSQL comparison - Cleaning data" type="text/html">
-<meta property="og:site_name" content="Data-Sci Wannabe">
+<meta property="og:site_name" content="Henric Sundberg">
 <meta property="og:title" content="Python - Cleaning excel files from the International Monetary Fund">
 <meta property="og:url" content="https://htp84.github.io/blog/posts/python-cleaning-excel-files-from-imf/">
 <meta property="og:description" content="Often when I browse different publically available datasets on for example Kaggle I find most of them are already tidy. Sure, to use the data for machine learning you must do feature engineering, but ">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2019-05-12T00:00:00Z">
+<meta property="article:tag" content="pandas">
 <meta property="article:tag" content="Python">
 </head>
 <body>
@@ -33,7 +34,7 @@ navbar-dark bg-dark
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href="https://htp84.github.io/blog/">
 
-            <span id="blog-title">Data-Sci Wannabe</span>
+            <span id="blog-title">Henric Sundberg</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -94,8 +95,9 @@ navbar-dark bg-dark
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Often when I browse different publically available datasets on for example <a href="https://www.kaggle.com/">Kaggle</a> I find most of them are already <a href="https://garrettgman.github.io/tidying/">tidy</a>. Sure, to use the data for machine learning you must do feature engineering, but most of the data cleaning is already done. I believe that this bad, since most of the data in the "real" world is messy.</p>
-<p>So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to clean messy data from the <a href="https://www.imf.org/en/Data">IMF data</a> homepage (International Financial Statistics) with the ultimate goal of producing a tidy dataframe.</p>
+<p>Often when I browse different publically available datasets on for example <a href="https://www.kaggle.com/">Kaggle</a> I find most of them are already <a href="https://garrettgman.github.io/tidying/">tidy</a>. Sure, to use the data for machine learning you must do feature engineering, but most of the data cleaning is already done. I believe that this bad, since most of the data in the "real" world is messy. 
+<!-- TEASER_END -->
+So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to clean messy data from the <a href="https://www.imf.org/en/Data">IMF data</a> homepage (International Financial Statistics) with the ultimate goal of producing a tidy dataframe.</p>
 <p>I have downloaded 8 excel files and they contain the following data:</p>
 <ul>
 <li>Financial Market Prices, Equities, End of Period, Index</li>
@@ -5179,7 +5181,8 @@ navbar-dark bg-dark
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../../categories/python/" rel="tag">Python</a></li>
+<li><a class="tag p-category" href="../../categories/pandas/" rel="tag">pandas</a></li>
+            <li><a class="tag p-category" href="../../categories/python/" rel="tag">Python</a></li>
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">
