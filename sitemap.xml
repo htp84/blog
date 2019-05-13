@@ -15,7 +15,7 @@
  </url>
  <url>
   <loc>https://htp84.github.io/blog/archive.html</loc>
-  <lastmod>2019-05-11T04:59:00Z</lastmod>
+  <lastmod>2019-05-13T18:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/categories/</loc>
@@ -44,6 +44,10 @@
  <url>
   <loc>https://htp84.github.io/blog/pages/about-me/</loc>
   <lastmod>2019-05-01T13:00:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://htp84.github.io/blog/posts/python-cleaning-excel-files-from-imf/</loc>
+  <lastmod>2019-05-05T12:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/posts/python-r-and-tsql-basic/</loc>

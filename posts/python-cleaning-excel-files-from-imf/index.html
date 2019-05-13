@@ -13,13 +13,13 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="https://htp84.github.io/blog/posts/python-cleaning-excel-files-from-imf/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Henric Sundberg">
-<meta name="robots" content="noindex">
+<link rel="prev" href="../python-r-tsql-comparison-cleaning-data/" title="Python, R and TSQL comparison - Cleaning data" type="text/html">
 <meta property="og:site_name" content="Data-Sci Wannabe">
 <meta property="og:title" content="Python - Cleaning excel files from the International Monetary Fund">
 <meta property="og:url" content="https://htp84.github.io/blog/posts/python-cleaning-excel-files-from-imf/">
 <meta property="og:description" content="Often when I browse different publically available datasets on for example Kaggle I find most of them are already tidy. Sure, to use the data for machine learning you must do feature engineering, but ">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-04-12T00:00:00Z">
+<meta property="article:published_time" content="2019-05-12T00:00:00Z">
 <meta property="article:tag" content="Python">
 </head>
 <body>
@@ -80,7 +80,7 @@ navbar-dark bg-dark
             </span></p>
             <p class="dateline">
             <a href="." rel="bookmark">
-            <time class="published dt-published" datetime="2019-04-12T00:00:00Z" itemprop="datePublished" title="2019-04-12 00:00">2019-04-12 00:00</time></a>
+            <time class="published dt-published" datetime="2019-05-12T00:00:00Z" itemprop="datePublished" title="2019-05-12 00:00">2019-05-12 00:00</time></a>
             </p>
             
 
@@ -176,7 +176,7 @@ navbar-dark bg-dark
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"../../imf/"</span><span class="p">)</span>
 
 <span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.xlsx"</span><span class="p">))</span>
 <span class="n">print2</span><span class="p">(</span><span class="s2">"Files:"</span><span class="p">)</span>
@@ -217,14 +217,14 @@ navbar-dark bg-dark
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[PosixPath('Prices_Production_and_Labor (1).xlsx'),
- PosixPath('Prices_Production_and_Labor (2).xlsx'),
- PosixPath('Prices_Production_and_Labor (3).xlsx'),
- PosixPath('Prices_Production_and_Labor (4).xlsx'),
- PosixPath('Prices_Production_and_Labor (5).xlsx'),
- PosixPath('Prices_Production_and_Labor (6).xlsx'),
- PosixPath('Prices_Production_and_Labor (7).xlsx'),
- PosixPath('Prices_Production_and_Labor.xlsx')]</pre>
+<pre>[PosixPath('../../imf/Prices_Production_and_Labor (1).xlsx'),
+ PosixPath('../../imf/Prices_Production_and_Labor (2).xlsx'),
+ PosixPath('../../imf/Prices_Production_and_Labor (3).xlsx'),
+ PosixPath('../../imf/Prices_Production_and_Labor (4).xlsx'),
+ PosixPath('../../imf/Prices_Production_and_Labor (5).xlsx'),
+ PosixPath('../../imf/Prices_Production_and_Labor (6).xlsx'),
+ PosixPath('../../imf/Prices_Production_and_Labor (7).xlsx'),
+ PosixPath('../../imf/Prices_Production_and_Labor.xlsx')]</pre>
 </div>
 
 </div>
@@ -1257,7 +1257,7 @@ navbar-dark bg-dark
 <span class="n">financial_data</span><span class="o">.</span><span class="n">period</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 
 <span class="n">print2</span><span class="p">(</span><span class="s2">"Cleaned data v3 (all files):"</span><span class="p">)</span>
-<span class="n">financial_data</span>
+<span class="n">financial_data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1361,557 +1361,97 @@ navbar-dark bg-dark
     </tr></thead>
 <tbody>
 <tr>
-<th>0</th>
-      <td>Afghanistan, Islamic Republic of</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>127.795223</td>
-    </tr>
-<tr>
-<th>1</th>
-      <td>Albania</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>107.581663</td>
-    </tr>
-<tr>
-<th>2</th>
-      <td>Algeria</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>117.521838</td>
-    </tr>
-<tr>
-<th>3</th>
+<th>42428</th>
       <td>Angola</td>
-      <td>prices_consumer_price_index_all_items_index</td>
+      <td>economic_activity_industrial_production_index</td>
       <td>Units</td>
       <td>2010=100</td>
-      <td>2013</td>
-      <td>136.131179</td>
-    </tr>
-<tr>
-<th>4</th>
-      <td>Anguilla</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>106.355020</td>
-    </tr>
-<tr>
-<th>5</th>
-      <td>Antigua and Barbuda</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>108.083497</td>
-    </tr>
-<tr>
-<th>6</th>
-      <td>Armenia, Republic of</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>116.795725</td>
-    </tr>
-<tr>
-<th>7</th>
-      <td>Aruba</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>102.481166</td>
-    </tr>
-<tr>
-<th>8</th>
-      <td>Australia</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>107.700312</td>
-    </tr>
-<tr>
-<th>9</th>
-      <td>Austria</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>107.971196</td>
-    </tr>
-<tr>
-<th>10</th>
-      <td>Azerbaijan, Republic of</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>111.641032</td>
-    </tr>
-<tr>
-<th>11</th>
-      <td>Bahamas, The</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>105.995508</td>
-    </tr>
-<tr>
-<th>12</th>
-      <td>Bahrain, Kingdom of</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>105.724164</td>
-    </tr>
-<tr>
-<th>13</th>
-      <td>Bangladesh</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>127.231229</td>
-    </tr>
-<tr>
-<th>14</th>
-      <td>Barbados</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>116.468355</td>
-    </tr>
-<tr>
-<th>15</th>
-      <td>Belarus</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>288.646812</td>
-    </tr>
-<tr>
-<th>16</th>
-      <td>Belgium</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>107.657181</td>
-    </tr>
-<tr>
-<th>17</th>
-      <td>Benin</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>110.624719</td>
-    </tr>
-<tr>
-<th>18</th>
-      <td>Bhutan</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>129.194415</td>
-    </tr>
-<tr>
-<th>19</th>
-      <td>Bolivia</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>121.434460</td>
-    </tr>
-<tr>
-<th>20</th>
-      <td>Bosnia and Herzegovina</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>105.700842</td>
-    </tr>
-<tr>
-<th>21</th>
-      <td>Botswana</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>123.497863</td>
-    </tr>
-<tr>
-<th>22</th>
-      <td>Brazil</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>119.372104</td>
-    </tr>
-<tr>
-<th>23</th>
-      <td>Brunei Darussalam</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>100.640009</td>
-    </tr>
-<tr>
-<th>24</th>
-      <td>Bulgaria</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>108.254215</td>
-    </tr>
-<tr>
-<th>25</th>
-      <td>Burkina Faso</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>107.252702</td>
-    </tr>
-<tr>
-<th>26</th>
-      <td>Burundi</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>139.774528</td>
-    </tr>
-<tr>
-<th>27</th>
-      <td>Cabo Verde</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>108.741862</td>
-    </tr>
-<tr>
-<th>28</th>
-      <td>Cambodia</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>111.766823</td>
-    </tr>
-<tr>
-<th>29</th>
-      <td>Cameroon</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>Units</td>
-      <td>2010=100</td>
-      <td>2013</td>
-      <td>107.923759</td>
-    </tr>
-<tr>
-<th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-<tr>
-<th>91130</th>
-      <td>Ireland</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
+      <td>2015m11</td>
       <td>NaN</td>
-      <td>2016.0</td>
-      <td>225.893037</td>
     </tr>
 <tr>
-<th>91131</th>
-      <td>Kenya</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
+<th>45384</th>
+      <td>New Zealand</td>
+      <td>employment_persons_number_of</td>
+      <td>Thousands</td>
       <td>NaN</td>
-      <td>2016.0</td>
-      <td>71.881289</td>
+      <td>2016q1</td>
+      <td>2401.000000</td>
     </tr>
 <tr>
-<th>91132</th>
-      <td>Korea, Republic of</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>98.803510</td>
-    </tr>
-<tr>
-<th>91133</th>
-      <td>Kuwait</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>82.640932</td>
-    </tr>
-<tr>
-<th>91134</th>
+<th>40394</th>
       <td>Macedonia, FYR</td>
       <td>financial_market_prices_equities_end_of_period...</td>
       <td>Units</td>
       <td>NaN</td>
-      <td>2016.0</td>
-      <td>93.680779</td>
+      <td>2015m09</td>
+      <td>74.792446</td>
     </tr>
 <tr>
-<th>91135</th>
-      <td>Malaysia</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
+<th>37253</th>
+      <td>Spain</td>
+      <td>prices_producer_price_index_all_commodities_index</td>
       <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>108.086062</td>
+      <td>2010=100</td>
+      <td>2015q3</td>
+      <td>108.515529</td>
     </tr>
 <tr>
-<th>91136</th>
-      <td>Maldives</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>73.422342</td>
-    </tr>
-<tr>
-<th>91137</th>
-      <td>Mexico</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>118.396796</td>
-    </tr>
-<tr>
-<th>91138</th>
-      <td>Mongolia</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>84.391737</td>
-    </tr>
-<tr>
-<th>91139</th>
-      <td>Montenegro</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>82.048162</td>
-    </tr>
-<tr>
-<th>91140</th>
-      <td>Morocco</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>92.011347</td>
-    </tr>
-<tr>
-<th>91141</th>
-      <td>Pakistan</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>397.647154</td>
-    </tr>
-<tr>
-<th>91142</th>
-      <td>Peru</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>83.107498</td>
-    </tr>
-<tr>
-<th>91143</th>
+<th>77383</th>
       <td>Philippines</td>
       <td>financial_market_prices_equities_end_of_period...</td>
       <td>Units</td>
       <td>NaN</td>
-      <td>2016.0</td>
-      <td>138.239833</td>
+      <td>2018m03</td>
+      <td>161.007444</td>
     </tr>
 <tr>
-<th>91144</th>
+<th>64991</th>
+      <td>Brunei Darussalam</td>
+      <td>unemployment_persons_number_of</td>
+      <td>Thousands</td>
+      <td>NaN</td>
+      <td>2017m05</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>24815</th>
+      <td>Denmark</td>
+      <td>labor_markets_unemployment_rate_percent</td>
+      <td>Units</td>
+      <td>NaN</td>
+      <td>2014m08</td>
+      <td>6.500000</td>
+    </tr>
+<tr>
+<th>11523</th>
       <td>Poland</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
+      <td>economic_activity_industrial_production_index</td>
       <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>108.979002</td>
+      <td>2010=100</td>
+      <td>2013q4</td>
+      <td>115.676306</td>
     </tr>
 <tr>
-<th>91145</th>
-      <td>Portugal</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>61.663269</td>
-    </tr>
-<tr>
-<th>91146</th>
-      <td>Qatar</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>120.216318</td>
-    </tr>
-<tr>
-<th>91147</th>
-      <td>Saudi Arabia</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>112.908928</td>
-    </tr>
-<tr>
-<th>91148</th>
-      <td>Singapore</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>97.489270</td>
-    </tr>
-<tr>
-<th>91149</th>
-      <td>Slovenia</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>84.387605</td>
-    </tr>
-<tr>
-<th>91150</th>
-      <td>Spain</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>94.004364</td>
-    </tr>
-<tr>
-<th>91151</th>
-      <td>Sri Lanka</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>93.857475</td>
-    </tr>
-<tr>
-<th>91152</th>
-      <td>Sweden</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>145.048027</td>
-    </tr>
-<tr>
-<th>91153</th>
-      <td>Switzerland</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>126.988721</td>
-    </tr>
-<tr>
-<th>91154</th>
-      <td>Trinidad and Tobago</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>145.474117</td>
-    </tr>
-<tr>
-<th>91155</th>
-      <td>Ukraine</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>27.192641</td>
-    </tr>
-<tr>
-<th>91156</th>
+<th>26159</th>
       <td>United Kingdom</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
+      <td>economic_activity_industrial_production_index</td>
       <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>127.905937</td>
+      <td>2010=100</td>
+      <td>2014q4</td>
+      <td>99.802761</td>
     </tr>
 <tr>
-<th>91157</th>
-      <td>Venezuela, Republica Bolivariana de</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
+<th>83106</th>
+      <td>Myanmar</td>
+      <td>unemployment_persons_number_of</td>
+      <td>Thousands</td>
       <td>NaN</td>
-      <td>2016.0</td>
-      <td>47767.677239</td>
-    </tr>
-<tr>
-<th>91158</th>
-      <td>Vietnam</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
+      <td>2018m08</td>
       <td>NaN</td>
-      <td>2016.0</td>
-      <td>136.911342</td>
-    </tr>
-<tr>
-<th>91159</th>
-      <td>Zambia</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>Units</td>
-      <td>NaN</td>
-      <td>2016.0</td>
-      <td>126.999140</td>
     </tr>
 </tbody>
 </table>
-<p>91160 rows × 6 columns</p>
 </div>
 </div>
 
@@ -2132,94 +1672,94 @@ navbar-dark bg-dark
     </tr></thead>
 <tbody>
 <tr>
-<th>4428</th>
-      <td>Nicaragua</td>
-      <td>prices_consumer_price_index_all_items_index</td>
+<th>20045</th>
+      <td>Poland</td>
+      <td>prices_producer_price_index_all_commodities_index</td>
+      <td>2014</td>
+      <td>04</td>
+      <td>month</td>
+      <td>108.300000</td>
+    </tr>
+<tr>
+<th>49825</th>
+      <td>Thailand</td>
+      <td>labor_markets_unemployment_rate_percent</td>
+      <td>2016</td>
+      <td>04</td>
+      <td>month</td>
+      <td>1.040000</td>
+    </tr>
+<tr>
+<th>25655</th>
+      <td>Belarus</td>
+      <td>labor_markets_unemployment_rate_percent</td>
+      <td>2014</td>
+      <td>09</td>
+      <td>month</td>
+      <td>0.500000</td>
+    </tr>
+<tr>
+<th>68523</th>
+      <td>United Kingdom</td>
+      <td>unemployment_persons_number_of</td>
+      <td>2017</td>
+      <td>08</td>
+      <td>month</td>
+      <td>1500.673000</td>
+    </tr>
+<tr>
+<th>5115</th>
+      <td>Vietnam</td>
+      <td>labor_markets_unemployment_rate_percent</td>
       <td>2013</td>
       <td>2</td>
       <td>quarter</td>
-      <td>124.032624</td>
+      <td>1.944700</td>
     </tr>
 <tr>
-<th>60520</th>
-      <td>Ireland</td>
+<th>25082</th>
+      <td>Qatar</td>
+      <td>prices_consumer_price_index_all_items_index</td>
+      <td>2014</td>
+      <td>09</td>
+      <td>month</td>
+      <td>111.397903</td>
+    </tr>
+<tr>
+<th>58776</th>
+      <td>Brazil</td>
       <td>economic_activity_industrial_production_index</td>
       <td>2017</td>
-      <td>01</td>
-      <td>month</td>
-      <td>187.443001</td>
-    </tr>
-<tr>
-<th>10538</th>
-      <td>China, P.R.: Mainland</td>
-      <td>prices_producer_price_index_all_commodities_index</td>
-      <td>2013</td>
-      <td>09</td>
-      <td>month</td>
-      <td>102.086909</td>
-    </tr>
-<tr>
-<th>11177</th>
-      <td>Venezuela, Republica Bolivariana de</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>2013</td>
-      <td>09</td>
-      <td>month</td>
-      <td>2746.727188</td>
-    </tr>
-<tr>
-<th>44617</th>
-      <td>Japan</td>
-      <td>labor_markets_unemployment_rate_percent</td>
-      <td>2016</td>
       <td>NaN</td>
       <td>year</td>
-      <td>3.116667</td>
+      <td>85.441020</td>
     </tr>
 <tr>
-<th>22725</th>
-      <td>Argentina</td>
-      <td>labor_force_persons_number_of</td>
-      <td>2014</td>
-      <td>3</td>
-      <td>quarter</td>
-      <td>11897.000000</td>
-    </tr>
-<tr>
-<th>7697</th>
-      <td>Australia</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>2013</td>
-      <td>06</td>
+<th>53638</th>
+      <td>Iceland</td>
+      <td>economic_activity_industrial_production_index</td>
+      <td>2016</td>
+      <td>08</td>
       <td>month</td>
-      <td>101.209643</td>
+      <td>119.448972</td>
     </tr>
 <tr>
-<th>18910</th>
-      <td>Spain</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>2014</td>
-      <td>03</td>
-      <td>month</td>
-      <td>105.213553</td>
-    </tr>
-<tr>
-<th>5215</th>
-      <td>El Salvador</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>2013</td>
-      <td>04</td>
-      <td>month</td>
-      <td>107.672778</td>
-    </tr>
-<tr>
-<th>59361</th>
-      <td>Botswana</td>
+<th>62004</th>
+      <td>Ireland</td>
       <td>prices_consumer_price_index_all_items_index</td>
       <td>2017</td>
-      <td>1</td>
-      <td>quarter</td>
-      <td>139.309412</td>
+      <td>03</td>
+      <td>month</td>
+      <td>105.105680</td>
+    </tr>
+<tr>
+<th>82540</th>
+      <td>Morocco</td>
+      <td>financial_market_prices_equities_end_of_period...</td>
+      <td>2018</td>
+      <td>07</td>
+      <td>month</td>
+      <td>92.816708</td>
     </tr>
 </tbody>
 </table>
@@ -2320,12 +1860,12 @@ navbar-dark bg-dark
     </tr></thead>
 <tbody>
 <tr>
-<th>72</th>
-      <td>Falkland Islands (Malvinas)</td>
-      <td>FK</td>
-      <td>FLK</td>
-      <td>238</td>
-      <td>ISO 3166-2:FK</td>
+<th>44</th>
+      <td>Chile</td>
+      <td>CL</td>
+      <td>CHL</td>
+      <td>152</td>
+      <td>ISO 3166-2:CL</td>
       <td>Americas</td>
       <td>Latin America and the Caribbean</td>
       <td>South America</td>
@@ -2334,12 +1874,54 @@ navbar-dark bg-dark
       <td>5.0</td>
     </tr>
 <tr>
-<th>231</th>
-      <td>Uganda</td>
-      <td>UG</td>
-      <td>UGA</td>
-      <td>800</td>
-      <td>ISO 3166-2:UG</td>
+<th>162</th>
+      <td>Niue</td>
+      <td>NU</td>
+      <td>NIU</td>
+      <td>570</td>
+      <td>ISO 3166-2:NU</td>
+      <td>Oceania</td>
+      <td>Polynesia</td>
+      <td>NaN</td>
+      <td>9.0</td>
+      <td>61.0</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>46</th>
+      <td>Christmas Island</td>
+      <td>CX</td>
+      <td>CXR</td>
+      <td>162</td>
+      <td>ISO 3166-2:CX</td>
+      <td>Oceania</td>
+      <td>Australia and New Zealand</td>
+      <td>NaN</td>
+      <td>9.0</td>
+      <td>53.0</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>221</th>
+      <td>Timor-Leste</td>
+      <td>TL</td>
+      <td>TLS</td>
+      <td>626</td>
+      <td>ISO 3166-2:TL</td>
+      <td>Asia</td>
+      <td>South-eastern Asia</td>
+      <td>NaN</td>
+      <td>142.0</td>
+      <td>35.0</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>208</th>
+      <td>South Sudan</td>
+      <td>SS</td>
+      <td>SSD</td>
+      <td>728</td>
+      <td>ISO 3166-2:SS</td>
       <td>Africa</td>
       <td>Sub-Saharan Africa</td>
       <td>Eastern Africa</td>
@@ -2362,54 +1944,26 @@ navbar-dark bg-dark
       <td>NaN</td>
     </tr>
 <tr>
-<th>209</th>
-      <td>Spain</td>
-      <td>ES</td>
-      <td>ESP</td>
-      <td>724</td>
-      <td>ISO 3166-2:ES</td>
-      <td>Europe</td>
-      <td>Southern Europe</td>
-      <td>NaN</td>
-      <td>150.0</td>
-      <td>39.0</td>
-      <td>NaN</td>
+<th>88</th>
+      <td>Grenada</td>
+      <td>GD</td>
+      <td>GRD</td>
+      <td>308</td>
+      <td>ISO 3166-2:GD</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+      <td>Caribbean</td>
+      <td>19.0</td>
+      <td>419.0</td>
+      <td>29.0</td>
     </tr>
 <tr>
-<th>154</th>
-      <td>Nauru</td>
-      <td>NR</td>
-      <td>NRU</td>
-      <td>520</td>
-      <td>ISO 3166-2:NR</td>
-      <td>Oceania</td>
-      <td>Micronesia</td>
-      <td>NaN</td>
-      <td>9.0</td>
-      <td>57.0</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>21</th>
-      <td>Belgium</td>
-      <td>BE</td>
-      <td>BEL</td>
-      <td>56</td>
-      <td>ISO 3166-2:BE</td>
-      <td>Europe</td>
-      <td>Western Europe</td>
-      <td>NaN</td>
-      <td>150.0</td>
-      <td>155.0</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>106</th>
-      <td>Iraq</td>
-      <td>IQ</td>
-      <td>IRQ</td>
-      <td>368</td>
-      <td>ISO 3166-2:IQ</td>
+<th>124</th>
+      <td>Lebanon</td>
+      <td>LB</td>
+      <td>LBN</td>
+      <td>422</td>
+      <td>ISO 3166-2:LB</td>
       <td>Asia</td>
       <td>Western Asia</td>
       <td>NaN</td>
@@ -2418,40 +1972,26 @@ navbar-dark bg-dark
       <td>NaN</td>
     </tr>
 <tr>
-<th>67</th>
-      <td>Equatorial Guinea</td>
-      <td>GQ</td>
-      <td>GNQ</td>
-      <td>226</td>
-      <td>ISO 3166-2:GQ</td>
-      <td>Africa</td>
-      <td>Sub-Saharan Africa</td>
-      <td>Middle Africa</td>
-      <td>2.0</td>
-      <td>202.0</td>
-      <td>17.0</td>
+<th>27</th>
+      <td>Bonaire, Sint Eustatius and Saba</td>
+      <td>BQ</td>
+      <td>BES</td>
+      <td>535</td>
+      <td>ISO 3166-2:BQ</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+      <td>Caribbean</td>
+      <td>19.0</td>
+      <td>419.0</td>
+      <td>29.0</td>
     </tr>
 <tr>
-<th>118</th>
-      <td>Korea (Democratic People's Republic of)</td>
-      <td>KP</td>
-      <td>PRK</td>
-      <td>408</td>
-      <td>ISO 3166-2:KP</td>
-      <td>Asia</td>
-      <td>Eastern Asia</td>
-      <td>NaN</td>
-      <td>142.0</td>
-      <td>30.0</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>210</th>
-      <td>Sri Lanka</td>
-      <td>LK</td>
-      <td>LKA</td>
-      <td>144</td>
-      <td>ISO 3166-2:LK</td>
+<th>18</th>
+      <td>Bangladesh</td>
+      <td>BD</td>
+      <td>BGD</td>
+      <td>50</td>
+      <td>ISO 3166-2:BD</td>
       <td>Asia</td>
       <td>Southern Asia</td>
       <td>NaN</td>
@@ -2689,26 +2229,26 @@ navbar-dark bg-dark
     </tr></thead>
 <tbody>
 <tr>
-<th>120</th>
-      <td>Kuwait</td>
-      <td>Asia</td>
-      <td>Western Asia</td>
+<th>129</th>
+      <td>Lithuania</td>
+      <td>Europe</td>
+      <td>Northern Europe</td>
     </tr>
 <tr>
-<th>212</th>
-      <td>Suriname</td>
-      <td>Americas</td>
-      <td>Latin America and the Caribbean</td>
-    </tr>
-<tr>
-<th>154</th>
-      <td>Nauru</td>
+<th>244</th>
+      <td>Wallis and Futuna</td>
       <td>Oceania</td>
-      <td>Micronesia</td>
+      <td>Polynesia</td>
     </tr>
 <tr>
-<th>93</th>
-      <td>Guinea</td>
+<th>211</th>
+      <td>Sudan</td>
+      <td>Africa</td>
+      <td>Northern Africa</td>
+    </tr>
+<tr>
+<th>23</th>
+      <td>Benin</td>
       <td>Africa</td>
       <td>Sub-Saharan Africa</td>
     </tr>
@@ -2719,34 +2259,34 @@ navbar-dark bg-dark
       <td>Sub-Saharan Africa</td>
     </tr>
 <tr>
-<th>53</th>
-      <td>Costa Rica</td>
-      <td>Americas</td>
-      <td>Latin America and the Caribbean</td>
+<th>17</th>
+      <td>Bahrain</td>
+      <td>Asia</td>
+      <td>Western Asia</td>
     </tr>
 <tr>
-<th>211</th>
-      <td>Sudan</td>
-      <td>Africa</td>
-      <td>Northern Africa</td>
+<th>144</th>
+      <td>Micronesia (Federated States of)</td>
+      <td>Oceania</td>
+      <td>Micronesia</td>
     </tr>
 <tr>
-<th>1</th>
-      <td>Åland Islands</td>
+<th>120</th>
+      <td>Kuwait</td>
+      <td>Asia</td>
+      <td>Western Asia</td>
+    </tr>
+<tr>
+<th>73</th>
+      <td>Faroe Islands</td>
       <td>Europe</td>
       <td>Northern Europe</td>
     </tr>
 <tr>
-<th>87</th>
-      <td>Greenland</td>
-      <td>Americas</td>
-      <td>Northern America</td>
-    </tr>
-<tr>
-<th>209</th>
-      <td>Spain</td>
-      <td>Europe</td>
-      <td>Southern Europe</td>
+<th>13</th>
+      <td>Australia</td>
+      <td>Oceania</td>
+      <td>Australia and New Zealand</td>
     </tr>
 </tbody>
 </table>
@@ -4001,7 +3541,7 @@ navbar-dark bg-dark
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are only 13 countries left. Below I try to find a match using the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.contains.html">contains</a> method from pandas. This method works similarly to the <strong>LIKE</strong> keyword in SQL. I will only use the first 8 letters in the country column. Why 8? Well, because I got the best result this way :).</p>
+<p>There are only 13 countries left. Below I try to find a match using the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.contains.html">contains</a> method from pandas. This method works similarly to the <strong>LIKE</strong> keyword in SQL. I will only use the first 8 letters in the country column. Why 8? Well, because I got the best result this way :). I create a new dictionary where I set the key to the country from the country column in missing and the value to the mactched country. If there is no match, NaN is set as value.</p>
 
 </div>
 </div>
@@ -4064,7 +3604,7 @@ navbar-dark bg-dark
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now there is only 5 countries with no match (inlcuding Netherland Antilles, that is not situated in the Netherlands.) I correct these countries manuallaly by searching for a substring in the region dataframe.</p>
+<p>Now there is only 5 countries with no match (inlcuding Netherlands Antilles, that is not situated in the Netherlands. I correct these countries manuallaly by searching for a substring in the region dataframe.</p>
 
 </div>
 </div>
@@ -4538,14 +4078,14 @@ navbar-dark bg-dark
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now only Kosovo and West Bank and Gaza have missing values. I know that Kosovo is a neighbor to Serbia, and West Bank is a neighbor to Israel, so I set these countries as values. This can be done since I will use this value as a key when joining the financial_data and region dataframes.</p>
 <p>Then I use the <em>mapping</em> dictionary to map the countries in the missing dataframe and append these to the corrected dataframe.</p>
-<p>Then, to get correct regions in the region dataframe, I merge the corrected dataframe with with the region dataframe where the corrected.........skriv färdigt!!</p>
+<p>Then, to get correct regions in the region dataframe, I merge the corrected dataframe with the region dataframe. Since I previously dropped countries with no matching keys from the region dataframe I can append the corrected dataframe to the region dataframe.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [19]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">region</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"country=='Israel' | country=='Serbia'"</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
@@ -4556,7 +4096,6 @@ navbar-dark bg-dark
 <span class="n">missing</span><span class="p">[</span><span class="s2">"country3"</span><span class="p">]</span> <span class="o">=</span> <span class="n">missing</span><span class="p">[</span><span class="s2">"country"</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
 
 <span class="n">corrected</span> <span class="o">=</span> <span class="n">corrected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span>
-
 
 <span class="n">corrected</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">corrected</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">"country3"</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">"country"</span><span class="p">)</span>
              <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">"country_y"</span><span class="p">,</span> <span class="s2">"country2"</span><span class="p">,</span> <span class="s2">"country3"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -4571,10 +4110,478 @@ navbar-dark bg-dark
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>country</th>
+      <th>region</th>
+      <th>sub-region</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>109</th>
+      <td>Israel</td>
+      <td>Asia</td>
+      <td>Western Asia</td>
+    </tr>
+<tr>
+<th>197</th>
+      <td>Serbia</td>
+      <td>Europe</td>
+      <td>Southern Europe</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>country</th>
+      <th>region</th>
+      <th>sub-region</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>Afghanistan</td>
+      <td>Asia</td>
+      <td>Southern Asia</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>Åland Islands</td>
+      <td>Europe</td>
+      <td>Northern Europe</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>Albania</td>
+      <td>Europe</td>
+      <td>Southern Europe</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>Algeria</td>
+      <td>Africa</td>
+      <td>Northern Africa</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>American Samoa</td>
+      <td>Oceania</td>
+      <td>Polynesia</td>
+    </tr>
+<tr>
+<th>5</th>
+      <td>Andorra</td>
+      <td>Europe</td>
+      <td>Southern Europe</td>
+    </tr>
+<tr>
+<th>6</th>
+      <td>Angola</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>7</th>
+      <td>Anguilla</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>8</th>
+      <td>Antarctica</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>9</th>
+      <td>Antigua and Barbuda</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>10</th>
+      <td>Argentina</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>11</th>
+      <td>Armenia</td>
+      <td>Asia</td>
+      <td>Western Asia</td>
+    </tr>
+<tr>
+<th>12</th>
+      <td>Aruba</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>13</th>
+      <td>Australia</td>
+      <td>Oceania</td>
+      <td>Australia and New Zealand</td>
+    </tr>
+<tr>
+<th>14</th>
+      <td>Austria</td>
+      <td>Europe</td>
+      <td>Western Europe</td>
+    </tr>
+<tr>
+<th>15</th>
+      <td>Azerbaijan</td>
+      <td>Asia</td>
+      <td>Western Asia</td>
+    </tr>
+<tr>
+<th>16</th>
+      <td>Bahamas</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>17</th>
+      <td>Bahrain</td>
+      <td>Asia</td>
+      <td>Western Asia</td>
+    </tr>
+<tr>
+<th>18</th>
+      <td>Bangladesh</td>
+      <td>Asia</td>
+      <td>Southern Asia</td>
+    </tr>
+<tr>
+<th>19</th>
+      <td>Barbados</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>20</th>
+      <td>Belarus</td>
+      <td>Europe</td>
+      <td>Eastern Europe</td>
+    </tr>
+<tr>
+<th>21</th>
+      <td>Belgium</td>
+      <td>Europe</td>
+      <td>Western Europe</td>
+    </tr>
+<tr>
+<th>22</th>
+      <td>Belize</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>23</th>
+      <td>Benin</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>24</th>
+      <td>Bermuda</td>
+      <td>Americas</td>
+      <td>Northern America</td>
+    </tr>
+<tr>
+<th>25</th>
+      <td>Bhutan</td>
+      <td>Asia</td>
+      <td>Southern Asia</td>
+    </tr>
+<tr>
+<th>26</th>
+      <td>Bolivia (Plurinational State of)</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>27</th>
+      <td>Bonaire, Sint Eustatius and Saba</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>28</th>
+      <td>Bosnia and Herzegovina</td>
+      <td>Europe</td>
+      <td>Southern Europe</td>
+    </tr>
+<tr>
+<th>29</th>
+      <td>Botswana</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+<tr>
+<th>6</th>
+      <td>China, P.R.: Macao</td>
+      <td>Asia</td>
+      <td>Eastern Asia</td>
+    </tr>
+<tr>
+<th>7</th>
+      <td>China, P.R.: Mainland</td>
+      <td>Asia</td>
+      <td>Eastern Asia</td>
+    </tr>
+<tr>
+<th>8</th>
+      <td>Congo, Democratic Republic of</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>9</th>
+      <td>Congo, Republic of</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>10</th>
+      <td>Eswatini, Kingdom of</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>11</th>
+      <td>French Territories: New Caledonia</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>12</th>
+      <td>Gambia, The</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>13</th>
+      <td>São Tomé and Príncipe</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>14</th>
+      <td>Serbia, Republic of</td>
+      <td>Europe</td>
+      <td>Southern Europe</td>
+    </tr>
+<tr>
+<th>15</th>
+      <td>Kosovo, Republic of</td>
+      <td>Europe</td>
+      <td>Southern Europe</td>
+    </tr>
+<tr>
+<th>16</th>
+      <td>Sint Maarten</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>17</th>
+      <td>Slovak Republic</td>
+      <td>Europe</td>
+      <td>Eastern Europe</td>
+    </tr>
+<tr>
+<th>18</th>
+      <td>Moldova</td>
+      <td>Europe</td>
+      <td>Eastern Europe</td>
+    </tr>
+<tr>
+<th>19</th>
+      <td>St. Kitts and Nevis</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>20</th>
+      <td>St. Lucia</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>21</th>
+      <td>St. Vincent and the Grenadines</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>22</th>
+      <td>Timor-Leste, Dem. Rep. of</td>
+      <td>Asia</td>
+      <td>South-eastern Asia</td>
+    </tr>
+<tr>
+<th>23</th>
+      <td>United States</td>
+      <td>Americas</td>
+      <td>Northern America</td>
+    </tr>
+<tr>
+<th>24</th>
+      <td>Vietnam</td>
+      <td>Asia</td>
+      <td>South-eastern Asia</td>
+    </tr>
+<tr>
+<th>25</th>
+      <td>Yemen, Republic of</td>
+      <td>Asia</td>
+      <td>Western Asia</td>
+    </tr>
+<tr>
+<th>26</th>
+      <td>Bolivia</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>27</th>
+      <td>Czech Republic</td>
+      <td>Europe</td>
+      <td>Eastern Europe</td>
+    </tr>
+<tr>
+<th>28</th>
+      <td>Iran, Islamic Republic of</td>
+      <td>Asia</td>
+      <td>Southern Asia</td>
+    </tr>
+<tr>
+<th>29</th>
+      <td>Kyrgyz Republic</td>
+      <td>Asia</td>
+      <td>Central Asia</td>
+    </tr>
+<tr>
+<th>30</th>
+      <td>Macedonia, FYR</td>
+      <td>Europe</td>
+      <td>Southern Europe</td>
+    </tr>
+<tr>
+<th>31</th>
+      <td>Micronesia, Federated States of</td>
+      <td>Oceania</td>
+      <td>Micronesia</td>
+    </tr>
+<tr>
+<th>32</th>
+      <td>Tanzania</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>33</th>
+      <td>United Kingdom</td>
+      <td>Europe</td>
+      <td>Northern Europe</td>
+    </tr>
+<tr>
+<th>34</th>
+      <td>Venezuela, Republica Bolivariana de</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>35</th>
+      <td>West Bank and Gaza</td>
+      <td>Asia</td>
+      <td>Western Asia</td>
+    </tr>
+</tbody>
+</table>
+<p>285 rows × 3 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now the region dataframe is cleaned. I join the financial dataframe with the region dataframe. Then I control that there are no missing countries. As can be seen below there are none.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">financial_data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">financial_data</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"country"</span><span class="p">)</span>
@@ -4610,7 +4617,7 @@ navbar-dark bg-dark
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -4692,7 +4699,7 @@ navbar-dark bg-dark
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -4725,114 +4732,114 @@ navbar-dark bg-dark
     </tr></thead>
 <tbody>
 <tr>
-<th>23842</th>
-      <td>China, P.R.: Macao</td>
-      <td>labor_force_persons_number_of</td>
-      <td>2015</td>
-      <td>03</td>
-      <td>month</td>
-      <td>405.800000</td>
-      <td>Asia</td>
-      <td>Eastern Asia</td>
-    </tr>
-<tr>
-<th>12776</th>
-      <td>Mauritius</td>
-      <td>prices_producer_price_index_all_commodities_index</td>
-      <td>2014</td>
-      <td>02</td>
-      <td>month</td>
-      <td>117.861625</td>
-      <td>Africa</td>
-      <td>Sub-Saharan Africa</td>
-    </tr>
-<tr>
-<th>18332</th>
-      <td>Denmark</td>
-      <td>unemployment_persons_number_of</td>
-      <td>2014</td>
-      <td>09</td>
-      <td>month</td>
-      <td>187.000000</td>
-      <td>Europe</td>
-      <td>Northern Europe</td>
-    </tr>
-<tr>
-<th>30260</th>
-      <td>Samoa</td>
+<th>53937</th>
+      <td>France</td>
       <td>prices_consumer_price_index_all_items_index</td>
-      <td>2015</td>
-      <td>11</td>
+      <td>2018</td>
+      <td>07</td>
       <td>month</td>
-      <td>108.107251</td>
-      <td>Oceania</td>
-      <td>Polynesia</td>
-    </tr>
-<tr>
-<th>19541</th>
-      <td>India</td>
-      <td>economic_activity_industrial_production_index</td>
-      <td>2014</td>
-      <td>10</td>
-      <td>month</td>
-      <td>107.994545</td>
-      <td>Asia</td>
-      <td>Southern Asia</td>
-    </tr>
-<tr>
-<th>15465</th>
-      <td>Luxembourg</td>
-      <td>labor_markets_unemployment_rate_percent</td>
-      <td>2014</td>
-      <td>05</td>
-      <td>month</td>
-      <td>5.700000</td>
+      <td>109.042918</td>
       <td>Europe</td>
       <td>Western Europe</td>
     </tr>
 <tr>
-<th>7941</th>
-      <td>Greece</td>
-      <td>labor_markets_unemployment_rate_percent</td>
-      <td>2013</td>
-      <td>09</td>
+<th>27450</th>
+      <td>Nicaragua</td>
+      <td>prices_producer_price_index_all_commodities_index</td>
+      <td>2015</td>
+      <td>07</td>
       <td>month</td>
-      <td>27.200000</td>
+      <td>151.984147</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>43605</th>
+      <td>Brunei Darussalam</td>
+      <td>prices_consumer_price_index_all_items_index</td>
+      <td>2017</td>
+      <td>03</td>
+      <td>month</td>
+      <td>99.253150</td>
+      <td>Asia</td>
+      <td>South-eastern Asia</td>
+    </tr>
+<tr>
+<th>47236</th>
+      <td>Montenegro</td>
+      <td>economic_activity_industrial_production_index</td>
+      <td>2017</td>
+      <td>07</td>
+      <td>month</td>
+      <td>86.489667</td>
       <td>Europe</td>
       <td>Southern Europe</td>
     </tr>
 <tr>
-<th>10478</th>
-      <td>Brazil</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>2014</td>
-      <td>NaN</td>
-      <td>year</td>
-      <td>126.927347</td>
-      <td>Americas</td>
-      <td>Latin America and the Caribbean</td>
-    </tr>
-<tr>
-<th>34182</th>
-      <td>Netherlands</td>
-      <td>employment_persons_number_of</td>
-      <td>2016</td>
+<th>3102</th>
+      <td>Canada</td>
+      <td>financial_market_prices_equities_end_of_period...</td>
+      <td>2013</td>
       <td>03</td>
       <td>month</td>
-      <td>8304.000000</td>
-      <td>Europe</td>
-      <td>Western Europe</td>
+      <td>94.842605</td>
+      <td>Americas</td>
+      <td>Northern America</td>
     </tr>
 <tr>
-<th>37395</th>
-      <td>Colombia</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>2016</td>
-      <td>07</td>
+<th>16401</th>
+      <td>Ireland</td>
+      <td>economic_activity_industrial_production_index</td>
+      <td>2014</td>
+      <td>3</td>
+      <td>quarter</td>
+      <td>114.257145</td>
+      <td>Europe</td>
+      <td>Northern Europe</td>
+    </tr>
+<tr>
+<th>46154</th>
+      <td>Euro Area</td>
+      <td>unemployment_persons_number_of</td>
+      <td>2017</td>
+      <td>06</td>
       <td>month</td>
-      <td>127.843062</td>
+      <td>14114.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>375</th>
+      <td>Trinidad and Tobago</td>
+      <td>labor_force_persons_number_of</td>
+      <td>2013</td>
+      <td>NaN</td>
+      <td>year</td>
+      <td>650.150000</td>
       <td>Americas</td>
       <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>692</th>
+      <td>Tunisia</td>
+      <td>labor_markets_unemployment_rate_percent</td>
+      <td>2013</td>
+      <td>NaN</td>
+      <td>year</td>
+      <td>15.844975</td>
+      <td>Africa</td>
+      <td>Northern Africa</td>
+    </tr>
+<tr>
+<th>53527</th>
+      <td>United States</td>
+      <td>labor_force_persons_number_of</td>
+      <td>2018</td>
+      <td>06</td>
+      <td>month</td>
+      <td>163277.000000</td>
+      <td>Americas</td>
+      <td>Northern America</td>
     </tr>
 </tbody>
 </table>
@@ -4845,9 +4852,19 @@ navbar-dark bg-dark
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now I need to spread the financial dataframe to get all the kpis in separate columns. Also, I only use the time period month.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [22]:</div>
+<div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">imf</span> <span class="o">=</span> <span class="p">(</span><span class="n">spread</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">financial_data2</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">"kpi"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">"value"</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -4870,7 +4887,7 @@ navbar-dark bg-dark
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -4909,147 +4926,11 @@ navbar-dark bg-dark
     </tr></thead>
 <tbody>
 <tr>
-<th>7450</th>
-      <td>Macedonia, FYR</td>
-      <td>2016</td>
-      <td>01</td>
-      <td>2016-01</td>
-      <td>Europe</td>
-      <td>Southern Europe</td>
-      <td>99.290737</td>
-      <td>NaN</td>
-      <td>80.480227</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>109.262206</td>
-      <td>111.628417</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>4626</th>
-      <td>Gabon</td>
-      <td>2013</td>
-      <td>05</td>
-      <td>2013-05</td>
-      <td>Africa</td>
-      <td>Sub-Saharan Africa</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>103.013020</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>11954</th>
-      <td>Timor-Leste, Dem. Rep. of</td>
-      <td>2013</td>
-      <td>05</td>
-      <td>2013-05</td>
-      <td>Asia</td>
-      <td>South-eastern Asia</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>141.550666</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>6861</th>
-      <td>Kyrgyz Republic</td>
-      <td>2015</td>
-      <td>01</td>
-      <td>2015-01</td>
-      <td>Asia</td>
-      <td>Central Asia</td>
-      <td>NaN</td>
-      <td>520.400</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2.400000</td>
-      <td>146.514305</td>
-      <td>116.953884</td>
-      <td>58.000</td>
-    </tr>
-<tr>
-<th>5286</th>
-      <td>Guinea</td>
-      <td>2016</td>
-      <td>11</td>
-      <td>2016-11</td>
-      <td>Africa</td>
-      <td>Sub-Saharan Africa</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>206.885265</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>12625</th>
-      <td>United Kingdom</td>
-      <td>2016</td>
-      <td>08</td>
-      <td>2016-08</td>
-      <td>Europe</td>
-      <td>Northern Europe</td>
-      <td>94.082840</td>
-      <td>31868.763</td>
-      <td>132.327082</td>
-      <td>33560.375</td>
-      <td>5.040504</td>
-      <td>112.298872</td>
-      <td>104.717453</td>
-      <td>1691.612</td>
-    </tr>
-<tr>
-<th>128</th>
-      <td>Afghanistan, Islamic Republic of</td>
+<th>12972</th>
+      <td>West Bank and Gaza</td>
       <td>2017</td>
-      <td>11</td>
-      <td>2017-11</td>
-      <td>Asia</td>
-      <td>Southern Asia</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>146.594157</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>4187</th>
-      <td>Ethiopia</td>
-      <td>2015</td>
-      <td>09</td>
-      <td>2015-09</td>
-      <td>Africa</td>
-      <td>Sub-Saharan Africa</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>219.905904</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>756</th>
-      <td>Azerbaijan, Republic of</td>
-      <td>2014</td>
-      <td>08</td>
-      <td>2014-08</td>
+      <td>04</td>
+      <td>2017-04</td>
       <td>Asia</td>
       <td>Western Asia</td>
       <td>NaN</td>
@@ -5057,26 +4938,162 @@ navbar-dark bg-dark
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>111.439351</td>
-      <td>131.180472</td>
+      <td>111.984373</td>
+      <td>NaN</td>
       <td>NaN</td>
     </tr>
 <tr>
-<th>6873</th>
-      <td>Kyrgyz Republic</td>
+<th>10515</th>
+      <td>Sierra Leone</td>
       <td>2016</td>
-      <td>01</td>
-      <td>2016-01</td>
+      <td>12</td>
+      <td>2016-12</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>162.664931</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>4100</th>
+      <td>Eswatini, Kingdom of</td>
+      <td>2014</td>
+      <td>06</td>
+      <td>2014-06</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>128.459869</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>4305</th>
+      <td>Europe</td>
+      <td>2014</td>
+      <td>06</td>
+      <td>2014-06</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>116.180510</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>4540</th>
+      <td>France</td>
+      <td>2016</td>
+      <td>04</td>
+      <td>2016-04</td>
+      <td>Europe</td>
+      <td>Western Europe</td>
+      <td>102.477333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9.900000</td>
+      <td>105.674919</td>
+      <td>100.572023</td>
+      <td>2911.000</td>
+    </tr>
+<tr>
+<th>11473</th>
+      <td>Suriname</td>
+      <td>2013</td>
+      <td>04</td>
+      <td>2013-04</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>124.459491</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>214</th>
+      <td>Algeria</td>
+      <td>2013</td>
+      <td>02</td>
+      <td>2013-02</td>
+      <td>Africa</td>
+      <td>Northern Africa</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>117.514498</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>9405</th>
+      <td>Paraguay</td>
+      <td>2013</td>
+      <td>05</td>
+      <td>2013-05</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+      <td>123.995600</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1356.143</td>
+      <td>NaN</td>
+      <td>113.665559</td>
+      <td>114.789300</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>11673</th>
+      <td>Switzerland</td>
+      <td>2018</td>
+      <td>09</td>
+      <td>2018-09</td>
+      <td>Europe</td>
+      <td>Western Europe</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.372137</td>
+      <td>99.394526</td>
+      <td>94.439775</td>
+      <td>106.586</td>
+    </tr>
+<tr>
+<th>2499</th>
+      <td>China, P.R.: Macao</td>
+      <td>2017</td>
+      <td>04</td>
+      <td>2017-04</td>
       <td>Asia</td>
-      <td>Central Asia</td>
+      <td>Eastern Asia</td>
       <td>NaN</td>
-      <td>523.700</td>
+      <td>381.8</td>
       <td>NaN</td>
+      <td>389.400</td>
+      <td>2.000000</td>
+      <td>135.269881</td>
       <td>NaN</td>
-      <td>2.300000</td>
-      <td>149.173569</td>
-      <td>128.558427</td>
-      <td>56.500</td>
+      <td>7.600</td>
     </tr>
 </tbody>
 </table>
@@ -5091,7 +5108,7 @@ navbar-dark bg-dark
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [23]:</div>
+<div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">imf</span><span class="o">.</span><span class="n">shape</span>
@@ -5107,7 +5124,7 @@ navbar-dark bg-dark
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[23]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -5122,12 +5139,24 @@ navbar-dark bg-dark
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Save-data">4. Save data<a class="anchor-link" href="#4.-Save-data">¶</a>
+</h3>
+<p>I choose to save data as csv file with the pandas method <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html">to_csv</a></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [28]:</div>
+<div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">imf</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="s2">"clean/imf_monthly.h5"</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">"monthly"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">imf</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"../../imf/clean/imf_monthly.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -5140,7 +5169,10 @@ navbar-dark bg-dark
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-$$e^x=\sum_{i=0}^\infty \frac{1}{i!}x^i$$
+<h3 id="Closing-comments">Closing comments<a class="anchor-link" href="#Closing-comments">¶</a>
+</h3>
+<p>Now the dataframe is tidy. In a future post, I will use R to do the same data tidying.</p>
+
 </div>
 </div>
 </div>
@@ -5148,6 +5180,11 @@ $$e^x=\sum_{i=0}^\infty \frac{1}{i!}x^i$$
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/python/" rel="tag">Python</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../python-r-tsql-comparison-cleaning-data/" rel="prev" title="Python, R and TSQL comparison - Cleaning data">Previous post</a>
+            </li>
         </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script></article><!--End of body content--><footer id="footer">
