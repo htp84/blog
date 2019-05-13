@@ -2,7 +2,7 @@
 .. title: Python, R and TSQL - Basic
 .. slug: python-r-and-tsql-basic
 .. date: 2019-03-16 00:00:00 UTC
-.. tags: Python, R, TSQL
+.. tags: Python, R, TSQL, tidyverse, pandas
 .. category: 
 .. link: 
 .. description: 

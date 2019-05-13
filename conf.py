@@ -17,7 +17,7 @@ import markdown as md
 
 # Data about this site
 BLOG_AUTHOR = "Henric Sundberg"  # (translatable)
-BLOG_TITLE = "Data-Sci Wannabe"  # (translatable)
+BLOG_TITLE = "Henric Sundberg"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "https://htp84.github.io/blog/"

@@ -2,7 +2,7 @@
 .. title: Python, R and TSQL comparison - Reading and writing files
 .. slug: python-r-tsql-comparison-reading-and-writing-files
 .. date: 2019-03-30 00:00:00 UTC
-.. tags: Python, R
+.. tags: Python, R, tidyverse, pandas
 .. category: 
 .. link: 
 .. description: 
