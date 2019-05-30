@@ -568,8 +568,9 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">cols</span> <span class="c1"># set columnnames</span>
 <span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="s2">"kpi"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">kpi</span><span class="p">)</span> <span class="c1"># add kpi at position 1</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># reset the index and delete the old index</span>
-<span class="n">print2</span><span class="p">(</span><span class="s2">"Cleaned data v1 (one file):"</span><span class="p">)</span>
+<span class="n">print2</span><span class="p">(</span><span class="s2">"Cleaned data v1 (one file) and shape:"</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -589,7 +590,7 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
 <pre>
 
 
-<span class="ansi-black-intense-fg ansi-white-bg ansi-bold">Cleaned data v1 (one file):</span>
+<span class="ansi-black-intense-fg ansi-white-bg ansi-bold">Cleaned data v1 (one file) and shape:</span>
 
 </pre>
 </div>
@@ -766,6 +767,19 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
 </table>
 <p>5 rows × 106 columns</p>
 </div>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(203, 106)</pre>
 </div>
 
 </div>
@@ -1029,8 +1043,9 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"..."</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="c1"># replace missing data with NaN</span>
     <span class="n">financial_data</span> <span class="o">=</span> <span class="n">financial_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># append columns on information, period and country</span>
 
-<span class="n">print2</span><span class="p">(</span><span class="s2">"Cleaned data v2 (all files):"</span><span class="p">)</span>    
+<span class="n">print2</span><span class="p">(</span><span class="s2">"Cleaned data v2 (all files) and shape:"</span><span class="p">)</span>    
 <span class="n">financial_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">financial_data</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -1050,7 +1065,7 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
 <pre>
 
 
-<span class="ansi-black-intense-fg ansi-white-bg ansi-bold">Cleaned data v2 (all files):</span>
+<span class="ansi-black-intense-fg ansi-white-bg ansi-bold">Cleaned data v2 (all files) and shape:</span>
 
 </pre>
 </div>
@@ -1231,6 +1246,19 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
 
 </div>
 
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(860, 110)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -1258,8 +1286,9 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
 <span class="n">print2</span><span class="p">(</span><span class="s2">"Unique periods"</span><span class="p">)</span>
 <span class="n">financial_data</span><span class="o">.</span><span class="n">period</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 
-<span class="n">print2</span><span class="p">(</span><span class="s2">"Cleaned data v3 (all files):"</span><span class="p">)</span>
+<span class="n">print2</span><span class="p">(</span><span class="s2">"Cleaned data v3 (all files) and shape:"</span><span class="p">)</span>
 <span class="n">financial_data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">financial_data</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -1324,7 +1353,7 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
 <pre>
 
 
-<span class="ansi-black-intense-fg ansi-white-bg ansi-bold">Cleaned data v3 (all files):</span>
+<span class="ansi-black-intense-fg ansi-white-bg ansi-bold">Cleaned data v3 (all files) and shape:</span>
 
 </pre>
 </div>
@@ -1363,98 +1392,111 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
     </tr></thead>
 <tbody>
 <tr>
-<th>42428</th>
-      <td>Angola</td>
-      <td>economic_activity_industrial_production_index</td>
+<th>68053</th>
+      <td>Mauritania</td>
+      <td>prices_consumer_price_index_all_items_index</td>
       <td>Units</td>
       <td>2010=100</td>
-      <td>2015m11</td>
-      <td>NaN</td>
+      <td>2017m08</td>
+      <td>128.967801</td>
     </tr>
 <tr>
-<th>45384</th>
-      <td>New Zealand</td>
-      <td>employment_persons_number_of</td>
-      <td>Thousands</td>
-      <td>NaN</td>
-      <td>2016q1</td>
-      <td>2401.000000</td>
-    </tr>
-<tr>
-<th>40394</th>
-      <td>Macedonia, FYR</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
+<th>36145</th>
+      <td>Burkina Faso</td>
+      <td>prices_consumer_price_index_all_items_index</td>
       <td>Units</td>
-      <td>NaN</td>
-      <td>2015m09</td>
-      <td>74.792446</td>
+      <td>2010=100</td>
+      <td>2015m06</td>
+      <td>110.354115</td>
     </tr>
 <tr>
-<th>37253</th>
-      <td>Spain</td>
+<th>23366</th>
+      <td>Samoa</td>
+      <td>prices_consumer_price_index_all_items_index</td>
+      <td>Units</td>
+      <td>2010=100</td>
+      <td>2014m07</td>
+      <td>107.046924</td>
+    </tr>
+<tr>
+<th>48414</th>
+      <td>Mauritius</td>
       <td>prices_producer_price_index_all_commodities_index</td>
       <td>Units</td>
       <td>2010=100</td>
-      <td>2015q3</td>
-      <td>108.515529</td>
+      <td>2016q2</td>
+      <td>120.192324</td>
     </tr>
 <tr>
-<th>77383</th>
-      <td>Philippines</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
+<th>78338</th>
+      <td>Hungary</td>
+      <td>prices_consumer_price_index_all_items_index</td>
       <td>Units</td>
-      <td>NaN</td>
-      <td>2018m03</td>
-      <td>161.007444</td>
+      <td>2010=100</td>
+      <td>2018m04</td>
+      <td>116.825833</td>
     </tr>
 <tr>
-<th>64991</th>
-      <td>Brunei Darussalam</td>
-      <td>unemployment_persons_number_of</td>
-      <td>Thousands</td>
-      <td>NaN</td>
-      <td>2017m05</td>
-      <td>NaN</td>
+<th>86937</th>
+      <td>Honduras</td>
+      <td>prices_consumer_price_index_all_items_index</td>
+      <td>Units</td>
+      <td>2010=100</td>
+      <td>2018m12</td>
+      <td>146.764550</td>
     </tr>
 <tr>
-<th>24815</th>
-      <td>Denmark</td>
+<th>24183</th>
+      <td>Lithuania</td>
+      <td>prices_consumer_price_index_all_items_index</td>
+      <td>Units</td>
+      <td>2010=100</td>
+      <td>2014m08</td>
+      <td>108.253118</td>
+    </tr>
+<tr>
+<th>73848</th>
+      <td>Honduras</td>
       <td>labor_markets_unemployment_rate_percent</td>
       <td>Units</td>
       <td>NaN</td>
-      <td>2014m08</td>
-      <td>6.500000</td>
+      <td>2018</td>
+      <td>NaN</td>
     </tr>
 <tr>
-<th>11523</th>
-      <td>Poland</td>
-      <td>economic_activity_industrial_production_index</td>
+<th>79287</th>
+      <td>Suriname</td>
+      <td>prices_consumer_price_index_all_items_index</td>
       <td>Units</td>
       <td>2010=100</td>
-      <td>2013q4</td>
-      <td>115.676306</td>
+      <td>2018m05</td>
+      <td>NaN</td>
     </tr>
 <tr>
-<th>26159</th>
-      <td>United Kingdom</td>
-      <td>economic_activity_industrial_production_index</td>
+<th>23208</th>
+      <td>Singapore</td>
+      <td>financial_market_prices_equities_end_of_period...</td>
       <td>Units</td>
-      <td>2010=100</td>
-      <td>2014q4</td>
-      <td>99.802761</td>
-    </tr>
-<tr>
-<th>83106</th>
-      <td>Myanmar</td>
-      <td>unemployment_persons_number_of</td>
-      <td>Thousands</td>
       <td>NaN</td>
-      <td>2018m08</td>
-      <td>NaN</td>
+      <td>2014q3</td>
+      <td>110.889832</td>
     </tr>
 </tbody>
 </table>
 </div>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(91160, 6)</pre>
 </div>
 
 </div>
@@ -1485,7 +1527,7 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
 <span class="n">financial_data</span><span class="o">.</span><span class="n">period</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 
 <span class="n">print2</span><span class="p">(</span><span class="s2">"Number of nulls in the value column:"</span><span class="p">)</span>
-<span class="n">financial_data</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">financial_data</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1564,7 +1606,7 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>91160</pre>
+<pre>35581</pre>
 </div>
 
 </div>
@@ -1578,7 +1620,7 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are 91160 rows with null values. One should always be careful when handling null values. But in this case, they are just in the way, so I will drop them and then control if there are any left.</p>
+<p>There are 35581 rows with null values. One should always be careful when handling null values. But in this case, they are just in the way, so I will drop them and then control if there are any left.</p>
 <p>The period column is not optimal, it would be nice if one easily could distinguish the time period. Also, it would be nice if year and period (month, quarter) were separate columns. This can be accomplished with the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html">apply</a> method and a <a href="https://www.w3schools.com/python/python_lambda.asp">lambda</a> function.</p>
 <p>I do all the above operations based on the period column. Then I replace the old period column with the new column that specifies the current month/quarter. NaN is set if the data is yearly.</p>
 
@@ -1674,94 +1716,94 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
     </tr></thead>
 <tbody>
 <tr>
-<th>20045</th>
-      <td>Poland</td>
-      <td>prices_producer_price_index_all_commodities_index</td>
-      <td>2014</td>
-      <td>04</td>
-      <td>month</td>
-      <td>108.300000</td>
-    </tr>
-<tr>
-<th>49825</th>
-      <td>Thailand</td>
-      <td>labor_markets_unemployment_rate_percent</td>
-      <td>2016</td>
-      <td>04</td>
-      <td>month</td>
-      <td>1.040000</td>
-    </tr>
-<tr>
-<th>25655</th>
-      <td>Belarus</td>
-      <td>labor_markets_unemployment_rate_percent</td>
-      <td>2014</td>
-      <td>09</td>
-      <td>month</td>
-      <td>0.500000</td>
-    </tr>
-<tr>
-<th>68523</th>
-      <td>United Kingdom</td>
+<th>59005</th>
+      <td>Italy</td>
       <td>unemployment_persons_number_of</td>
-      <td>2017</td>
-      <td>08</td>
-      <td>month</td>
-      <td>1500.673000</td>
-    </tr>
-<tr>
-<th>5115</th>
-      <td>Vietnam</td>
-      <td>labor_markets_unemployment_rate_percent</td>
-      <td>2013</td>
-      <td>2</td>
-      <td>quarter</td>
-      <td>1.944700</td>
-    </tr>
-<tr>
-<th>25082</th>
-      <td>Qatar</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>2014</td>
-      <td>09</td>
-      <td>month</td>
-      <td>111.397903</td>
-    </tr>
-<tr>
-<th>58776</th>
-      <td>Brazil</td>
-      <td>economic_activity_industrial_production_index</td>
       <td>2017</td>
       <td>NaN</td>
       <td>year</td>
-      <td>85.441020</td>
+      <td>2909.083333</td>
     </tr>
 <tr>
-<th>53638</th>
-      <td>Iceland</td>
-      <td>economic_activity_industrial_production_index</td>
-      <td>2016</td>
-      <td>08</td>
-      <td>month</td>
-      <td>119.448972</td>
-    </tr>
-<tr>
-<th>62004</th>
-      <td>Ireland</td>
+<th>61224</th>
+      <td>St. Lucia</td>
       <td>prices_consumer_price_index_all_items_index</td>
       <td>2017</td>
-      <td>03</td>
+      <td>02</td>
       <td>month</td>
-      <td>105.105680</td>
+      <td>107.334963</td>
     </tr>
 <tr>
-<th>82540</th>
-      <td>Morocco</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>2018</td>
-      <td>07</td>
+<th>37491</th>
+      <td>Finland</td>
+      <td>unemployment_persons_number_of</td>
+      <td>2015</td>
+      <td>3</td>
+      <td>quarter</td>
+      <td>226.333333</td>
+    </tr>
+<tr>
+<th>55370</th>
+      <td>Macedonia, FYR</td>
+      <td>economic_activity_industrial_production_index</td>
+      <td>2016</td>
+      <td>4</td>
+      <td>quarter</td>
+      <td>130.639497</td>
+    </tr>
+<tr>
+<th>55396</th>
+      <td>Tunisia</td>
+      <td>economic_activity_industrial_production_index</td>
+      <td>2016</td>
+      <td>4</td>
+      <td>quarter</td>
+      <td>93.000000</td>
+    </tr>
+<tr>
+<th>14201</th>
+      <td>Peru</td>
+      <td>labor_force_persons_number_of</td>
+      <td>2013</td>
+      <td>12</td>
       <td>month</td>
-      <td>92.816708</td>
+      <td>4949.000000</td>
+    </tr>
+<tr>
+<th>7184</th>
+      <td>Cyprus</td>
+      <td>economic_activity_industrial_production_index</td>
+      <td>2013</td>
+      <td>06</td>
+      <td>month</td>
+      <td>75.593701</td>
+    </tr>
+<tr>
+<th>30044</th>
+      <td>Tajikistan</td>
+      <td>labor_markets_unemployment_rate_percent</td>
+      <td>2015</td>
+      <td>NaN</td>
+      <td>year</td>
+      <td>2.400000</td>
+    </tr>
+<tr>
+<th>14021</th>
+      <td>Norway</td>
+      <td>prices_producer_price_index_all_commodities_index</td>
+      <td>2013</td>
+      <td>12</td>
+      <td>month</td>
+      <td>123.917000</td>
+    </tr>
+<tr>
+<th>37075</th>
+      <td>Kuwait</td>
+      <td>prices_consumer_price_index_all_items_index</td>
+      <td>2015</td>
+      <td>3</td>
+      <td>quarter</td>
+      <td>118.583309</td>
     </tr>
 </tbody>
 </table>
@@ -1862,54 +1904,26 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
     </tr></thead>
 <tbody>
 <tr>
-<th>44</th>
-      <td>Chile</td>
-      <td>CL</td>
-      <td>CHL</td>
-      <td>152</td>
-      <td>ISO 3166-2:CL</td>
+<th>89</th>
+      <td>Guadeloupe</td>
+      <td>GP</td>
+      <td>GLP</td>
+      <td>312</td>
+      <td>ISO 3166-2:GP</td>
       <td>Americas</td>
       <td>Latin America and the Caribbean</td>
-      <td>South America</td>
+      <td>Caribbean</td>
       <td>19.0</td>
       <td>419.0</td>
-      <td>5.0</td>
+      <td>29.0</td>
     </tr>
 <tr>
-<th>162</th>
-      <td>Niue</td>
-      <td>NU</td>
-      <td>NIU</td>
-      <td>570</td>
-      <td>ISO 3166-2:NU</td>
-      <td>Oceania</td>
-      <td>Polynesia</td>
-      <td>NaN</td>
-      <td>9.0</td>
-      <td>61.0</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>46</th>
-      <td>Christmas Island</td>
-      <td>CX</td>
-      <td>CXR</td>
-      <td>162</td>
-      <td>ISO 3166-2:CX</td>
-      <td>Oceania</td>
-      <td>Australia and New Zealand</td>
-      <td>NaN</td>
-      <td>9.0</td>
-      <td>53.0</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>221</th>
-      <td>Timor-Leste</td>
-      <td>TL</td>
-      <td>TLS</td>
-      <td>626</td>
-      <td>ISO 3166-2:TL</td>
+<th>134</th>
+      <td>Malaysia</td>
+      <td>MY</td>
+      <td>MYS</td>
+      <td>458</td>
+      <td>ISO 3166-2:MY</td>
       <td>Asia</td>
       <td>South-eastern Asia</td>
       <td>NaN</td>
@@ -1918,12 +1932,40 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
       <td>NaN</td>
     </tr>
 <tr>
-<th>208</th>
-      <td>South Sudan</td>
-      <td>SS</td>
-      <td>SSD</td>
-      <td>728</td>
-      <td>ISO 3166-2:SS</td>
+<th>175</th>
+      <td>Philippines</td>
+      <td>PH</td>
+      <td>PHL</td>
+      <td>608</td>
+      <td>ISO 3166-2:PH</td>
+      <td>Asia</td>
+      <td>South-eastern Asia</td>
+      <td>NaN</td>
+      <td>142.0</td>
+      <td>35.0</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>96</th>
+      <td>Haiti</td>
+      <td>HT</td>
+      <td>HTI</td>
+      <td>332</td>
+      <td>ISO 3166-2:HT</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+      <td>Caribbean</td>
+      <td>19.0</td>
+      <td>419.0</td>
+      <td>29.0</td>
+    </tr>
+<tr>
+<th>141</th>
+      <td>Mauritius</td>
+      <td>MU</td>
+      <td>MUS</td>
+      <td>480</td>
+      <td>ISO 3166-2:MU</td>
       <td>Africa</td>
       <td>Sub-Saharan Africa</td>
       <td>Eastern Africa</td>
@@ -1932,12 +1974,12 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
       <td>14.0</td>
     </tr>
 <tr>
-<th>120</th>
-      <td>Kuwait</td>
-      <td>KW</td>
-      <td>KWT</td>
-      <td>414</td>
-      <td>ISO 3166-2:KW</td>
+<th>170</th>
+      <td>Palestine, State of</td>
+      <td>PS</td>
+      <td>PSE</td>
+      <td>275</td>
+      <td>ISO 3166-2:PS</td>
       <td>Asia</td>
       <td>Western Asia</td>
       <td>NaN</td>
@@ -1946,12 +1988,40 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
       <td>NaN</td>
     </tr>
 <tr>
-<th>88</th>
-      <td>Grenada</td>
-      <td>GD</td>
-      <td>GRD</td>
-      <td>308</td>
-      <td>ISO 3166-2:GD</td>
+<th>148</th>
+      <td>Montenegro</td>
+      <td>ME</td>
+      <td>MNE</td>
+      <td>499</td>
+      <td>ISO 3166-2:ME</td>
+      <td>Europe</td>
+      <td>Southern Europe</td>
+      <td>NaN</td>
+      <td>150.0</td>
+      <td>39.0</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>80</th>
+      <td>Gabon</td>
+      <td>GA</td>
+      <td>GAB</td>
+      <td>266</td>
+      <td>ISO 3166-2:GA</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+      <td>Middle Africa</td>
+      <td>2.0</td>
+      <td>202.0</td>
+      <td>17.0</td>
+    </tr>
+<tr>
+<th>188</th>
+      <td>Saint Lucia</td>
+      <td>LC</td>
+      <td>LCA</td>
+      <td>662</td>
+      <td>ISO 3166-2:LC</td>
       <td>Americas</td>
       <td>Latin America and the Caribbean</td>
       <td>Caribbean</td>
@@ -1960,45 +2030,17 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
       <td>29.0</td>
     </tr>
 <tr>
-<th>124</th>
-      <td>Lebanon</td>
-      <td>LB</td>
-      <td>LBN</td>
-      <td>422</td>
-      <td>ISO 3166-2:LB</td>
+<th>220</th>
+      <td>Thailand</td>
+      <td>TH</td>
+      <td>THA</td>
+      <td>764</td>
+      <td>ISO 3166-2:TH</td>
       <td>Asia</td>
-      <td>Western Asia</td>
+      <td>South-eastern Asia</td>
       <td>NaN</td>
       <td>142.0</td>
-      <td>145.0</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>27</th>
-      <td>Bonaire, Sint Eustatius and Saba</td>
-      <td>BQ</td>
-      <td>BES</td>
-      <td>535</td>
-      <td>ISO 3166-2:BQ</td>
-      <td>Americas</td>
-      <td>Latin America and the Caribbean</td>
-      <td>Caribbean</td>
-      <td>19.0</td>
-      <td>419.0</td>
-      <td>29.0</td>
-    </tr>
-<tr>
-<th>18</th>
-      <td>Bangladesh</td>
-      <td>BD</td>
-      <td>BGD</td>
-      <td>50</td>
-      <td>ISO 3166-2:BD</td>
-      <td>Asia</td>
-      <td>Southern Asia</td>
-      <td>NaN</td>
-      <td>142.0</td>
-      <td>34.0</td>
+      <td>35.0</td>
       <td>NaN</td>
     </tr>
 </tbody>
@@ -2231,10 +2273,46 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
     </tr></thead>
 <tbody>
 <tr>
-<th>129</th>
-      <td>Lithuania</td>
-      <td>Europe</td>
-      <td>Northern Europe</td>
+<th>195</th>
+      <td>Saudi Arabia</td>
+      <td>Asia</td>
+      <td>Western Asia</td>
+    </tr>
+<tr>
+<th>100</th>
+      <td>Hong Kong</td>
+      <td>Asia</td>
+      <td>Eastern Asia</td>
+    </tr>
+<tr>
+<th>119</th>
+      <td>Korea, Republic of</td>
+      <td>Asia</td>
+      <td>Eastern Asia</td>
+    </tr>
+<tr>
+<th>65</th>
+      <td>Egypt</td>
+      <td>Africa</td>
+      <td>Northern Africa</td>
+    </tr>
+<tr>
+<th>160</th>
+      <td>Niger</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>10</th>
+      <td>Argentina</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>226</th>
+      <td>Tunisia</td>
+      <td>Africa</td>
+      <td>Northern Africa</td>
     </tr>
 <tr>
 <th>244</th>
@@ -2243,52 +2321,16 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
       <td>Polynesia</td>
     </tr>
 <tr>
-<th>211</th>
-      <td>Sudan</td>
-      <td>Africa</td>
-      <td>Northern Africa</td>
+<th>225</th>
+      <td>Trinidad and Tobago</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
     </tr>
 <tr>
-<th>23</th>
-      <td>Benin</td>
-      <td>Africa</td>
-      <td>Sub-Saharan Africa</td>
-    </tr>
-<tr>
-<th>79</th>
-      <td>French Southern Territories</td>
+<th>161</th>
+      <td>Nigeria</td>
       <td>Africa</td>
       <td>Sub-Saharan Africa</td>
-    </tr>
-<tr>
-<th>17</th>
-      <td>Bahrain</td>
-      <td>Asia</td>
-      <td>Western Asia</td>
-    </tr>
-<tr>
-<th>144</th>
-      <td>Micronesia (Federated States of)</td>
-      <td>Oceania</td>
-      <td>Micronesia</td>
-    </tr>
-<tr>
-<th>120</th>
-      <td>Kuwait</td>
-      <td>Asia</td>
-      <td>Western Asia</td>
-    </tr>
-<tr>
-<th>73</th>
-      <td>Faroe Islands</td>
-      <td>Europe</td>
-      <td>Northern Europe</td>
-    </tr>
-<tr>
-<th>13</th>
-      <td>Australia</td>
-      <td>Oceania</td>
-      <td>Australia and New Zealand</td>
     </tr>
 </tbody>
 </table>
@@ -4734,114 +4776,114 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
     </tr></thead>
 <tbody>
 <tr>
-<th>53937</th>
-      <td>France</td>
+<th>17464</th>
+      <td>Haiti</td>
       <td>prices_consumer_price_index_all_items_index</td>
-      <td>2018</td>
-      <td>07</td>
+      <td>2014</td>
+      <td>08</td>
       <td>month</td>
-      <td>109.042918</td>
+      <td>128.741676</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>3500</th>
+      <td>Belize</td>
+      <td>labor_force_persons_number_of</td>
+      <td>2013</td>
+      <td>2</td>
+      <td>quarter</td>
+      <td>148.736000</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+    </tr>
+<tr>
+<th>3422</th>
+      <td>Austria</td>
+      <td>economic_activity_industrial_production_index</td>
+      <td>2013</td>
+      <td>2</td>
+      <td>quarter</td>
+      <td>108.372907</td>
       <td>Europe</td>
       <td>Western Europe</td>
     </tr>
 <tr>
-<th>27450</th>
-      <td>Nicaragua</td>
-      <td>prices_producer_price_index_all_commodities_index</td>
-      <td>2015</td>
-      <td>07</td>
+<th>51442</th>
+      <td>Czech Republic</td>
+      <td>prices_consumer_price_index_all_items_index</td>
+      <td>2018</td>
+      <td>02</td>
       <td>month</td>
-      <td>151.984147</td>
+      <td>112.345458</td>
+      <td>Europe</td>
+      <td>Eastern Europe</td>
+    </tr>
+<tr>
+<th>46929</th>
+      <td>Korea, Republic of</td>
+      <td>financial_market_prices_equities_end_of_period...</td>
+      <td>2017</td>
+      <td>3</td>
+      <td>quarter</td>
+      <td>116.746465</td>
+      <td>Asia</td>
+      <td>Eastern Asia</td>
+    </tr>
+<tr>
+<th>47443</th>
+      <td>Bahamas, The</td>
+      <td>prices_consumer_price_index_all_items_index</td>
+      <td>2017</td>
+      <td>08</td>
+      <td>month</td>
+      <td>111.098256</td>
       <td>Americas</td>
       <td>Latin America and the Caribbean</td>
     </tr>
 <tr>
-<th>43605</th>
-      <td>Brunei Darussalam</td>
-      <td>prices_consumer_price_index_all_items_index</td>
-      <td>2017</td>
+<th>23819</th>
+      <td>Poland</td>
+      <td>economic_activity_industrial_production_index</td>
+      <td>2015</td>
       <td>03</td>
       <td>month</td>
-      <td>99.253150</td>
-      <td>Asia</td>
-      <td>South-eastern Asia</td>
+      <td>127.510626</td>
+      <td>Europe</td>
+      <td>Eastern Europe</td>
     </tr>
 <tr>
-<th>47236</th>
-      <td>Montenegro</td>
-      <td>economic_activity_industrial_production_index</td>
-      <td>2017</td>
+<th>1590</th>
+      <td>South Africa</td>
+      <td>prices_consumer_price_index_all_items_index</td>
+      <td>2013</td>
+      <td>01</td>
+      <td>month</td>
+      <td>114.022009</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+    </tr>
+<tr>
+<th>6421</th>
+      <td>Macedonia, FYR</td>
+      <td>prices_consumer_price_index_all_items_index</td>
+      <td>2013</td>
       <td>07</td>
       <td>month</td>
-      <td>86.489667</td>
+      <td>109.958473</td>
       <td>Europe</td>
       <td>Southern Europe</td>
     </tr>
 <tr>
-<th>3102</th>
-      <td>Canada</td>
-      <td>financial_market_prices_equities_end_of_period...</td>
-      <td>2013</td>
-      <td>03</td>
-      <td>month</td>
-      <td>94.842605</td>
-      <td>Americas</td>
-      <td>Northern America</td>
-    </tr>
-<tr>
-<th>16401</th>
-      <td>Ireland</td>
-      <td>economic_activity_industrial_production_index</td>
-      <td>2014</td>
-      <td>3</td>
-      <td>quarter</td>
-      <td>114.257145</td>
-      <td>Europe</td>
-      <td>Northern Europe</td>
-    </tr>
-<tr>
-<th>46154</th>
-      <td>Euro Area</td>
-      <td>unemployment_persons_number_of</td>
-      <td>2017</td>
-      <td>06</td>
-      <td>month</td>
-      <td>14114.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>375</th>
-      <td>Trinidad and Tobago</td>
-      <td>labor_force_persons_number_of</td>
-      <td>2013</td>
-      <td>NaN</td>
-      <td>year</td>
-      <td>650.150000</td>
-      <td>Americas</td>
-      <td>Latin America and the Caribbean</td>
-    </tr>
-<tr>
-<th>692</th>
-      <td>Tunisia</td>
+<th>7921</th>
+      <td>Belarus</td>
       <td>labor_markets_unemployment_rate_percent</td>
       <td>2013</td>
-      <td>NaN</td>
-      <td>year</td>
-      <td>15.844975</td>
-      <td>Africa</td>
-      <td>Northern Africa</td>
-    </tr>
-<tr>
-<th>53527</th>
-      <td>United States</td>
-      <td>labor_force_persons_number_of</td>
-      <td>2018</td>
-      <td>06</td>
+      <td>09</td>
       <td>month</td>
-      <td>163277.000000</td>
-      <td>Americas</td>
-      <td>Northern America</td>
+      <td>0.500000</td>
+      <td>Europe</td>
+      <td>Eastern Europe</td>
     </tr>
 </tbody>
 </table>
@@ -4928,96 +4970,113 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
     </tr></thead>
 <tbody>
 <tr>
-<th>12972</th>
-      <td>West Bank and Gaza</td>
-      <td>2017</td>
-      <td>04</td>
-      <td>2017-04</td>
+<th>10366</th>
+      <td>Serbia, Republic of</td>
+      <td>2016</td>
+      <td>03</td>
+      <td>2016-03</td>
+      <td>Europe</td>
+      <td>Southern Europe</td>
+      <td>117.309776</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>133.575978</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>9916</th>
+      <td>Russian Federation</td>
+      <td>2014</td>
+      <td>03</td>
+      <td>2014-03</td>
+      <td>Europe</td>
+      <td>Eastern Europe</td>
+      <td>111.609301</td>
+      <td>71100.0</td>
+      <td>NaN</td>
+      <td>75100.0</td>
+      <td>5.4</td>
+      <td>127.743898</td>
+      <td>135.572792</td>
+      <td>4000.0</td>
+    </tr>
+<tr>
+<th>8005</th>
+      <td>Mauritania</td>
+      <td>2016</td>
+      <td>03</td>
+      <td>2016-03</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>123.033307</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>5080</th>
+      <td>Grenada</td>
+      <td>2015</td>
+      <td>06</td>
+      <td>2015-06</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>103.488896</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>1048</th>
+      <td>Barbados</td>
+      <td>2015</td>
+      <td>03</td>
+      <td>2015-03</td>
+      <td>Americas</td>
+      <td>Latin America and the Caribbean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>115.383030</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>9577</th>
+      <td>Philippines</td>
+      <td>2015</td>
+      <td>11</td>
+      <td>2015-11</td>
       <td>Asia</td>
-      <td>Western Asia</td>
+      <td>South-eastern Asia</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>132.945829</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>111.984373</td>
-      <td>NaN</td>
+      <td>115.735111</td>
+      <td>84.888438</td>
       <td>NaN</td>
     </tr>
 <tr>
-<th>10515</th>
-      <td>Sierra Leone</td>
+<th>5417</th>
+      <td>Guyana</td>
       <td>2016</td>
-      <td>12</td>
-      <td>2016-12</td>
-      <td>Africa</td>
-      <td>Sub-Saharan Africa</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>162.664931</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>4100</th>
-      <td>Eswatini, Kingdom of</td>
-      <td>2014</td>
-      <td>06</td>
-      <td>2014-06</td>
-      <td>Africa</td>
-      <td>Sub-Saharan Africa</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>128.459869</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>4305</th>
-      <td>Europe</td>
-      <td>2014</td>
-      <td>06</td>
-      <td>2014-06</td>
-      <td>nan</td>
-      <td>nan</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>116.180510</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>4540</th>
-      <td>France</td>
-      <td>2016</td>
-      <td>04</td>
-      <td>2016-04</td>
-      <td>Europe</td>
-      <td>Western Europe</td>
-      <td>102.477333</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>9.900000</td>
-      <td>105.674919</td>
-      <td>100.572023</td>
-      <td>2911.000</td>
-    </tr>
-<tr>
-<th>11473</th>
-      <td>Suriname</td>
-      <td>2013</td>
-      <td>04</td>
-      <td>2013-04</td>
+      <td>01</td>
+      <td>2016-01</td>
       <td>Americas</td>
       <td>Latin America and the Caribbean</td>
       <td>NaN</td>
@@ -5025,77 +5084,60 @@ So, in this post, I will use <a href="https://pandas.pydata.org/">pandas</a> to 
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>124.459491</td>
+      <td>109.416835</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
 <tr>
-<th>214</th>
-      <td>Algeria</td>
-      <td>2013</td>
-      <td>02</td>
-      <td>2013-02</td>
-      <td>Africa</td>
-      <td>Northern Africa</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>117.514498</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-<tr>
-<th>9405</th>
-      <td>Paraguay</td>
-      <td>2013</td>
-      <td>05</td>
-      <td>2013-05</td>
+<th>3001</th>
+      <td>Curaçao</td>
+      <td>2017</td>
+      <td>06</td>
+      <td>2017-06</td>
       <td>Americas</td>
       <td>Latin America and the Caribbean</td>
-      <td>123.995600</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>1356.143</td>
       <td>NaN</td>
-      <td>113.665559</td>
-      <td>114.789300</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>109.424885</td>
+      <td>NaN</td>
       <td>NaN</td>
     </tr>
 <tr>
-<th>11673</th>
-      <td>Switzerland</td>
-      <td>2018</td>
+<th>3983</th>
+      <td>Equatorial Guinea</td>
+      <td>2016</td>
       <td>09</td>
-      <td>2018-09</td>
-      <td>Europe</td>
-      <td>Western Europe</td>
+      <td>2016-09</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2.372137</td>
-      <td>99.394526</td>
-      <td>94.439775</td>
-      <td>106.586</td>
+      <td>NaN</td>
+      <td>120.731890</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
 <tr>
-<th>2499</th>
-      <td>China, P.R.: Macao</td>
+<th>10453</th>
+      <td>Seychelles</td>
       <td>2017</td>
-      <td>04</td>
-      <td>2017-04</td>
-      <td>Asia</td>
-      <td>Eastern Asia</td>
+      <td>09</td>
+      <td>2017-09</td>
+      <td>Africa</td>
+      <td>Sub-Saharan Africa</td>
       <td>NaN</td>
-      <td>381.8</td>
       <td>NaN</td>
-      <td>389.400</td>
-      <td>2.000000</td>
-      <td>135.269881</td>
       <td>NaN</td>
-      <td>7.600</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>124.131699</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
 </tbody>
 </table>
