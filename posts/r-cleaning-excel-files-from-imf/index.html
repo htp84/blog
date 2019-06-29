@@ -3,17 +3,27 @@
 " lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Write something here">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Henric Sundberg</title>
-<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link href="assets/css/ipython.min.css" rel="stylesheet" type="text/css">
-<link href="assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<title>R - Cleaning excel files from the International Monetary Fund | Henric Sundberg</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
-<link rel="canonical" href="https://htp84.github.io/blog/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/r-cleaning-excel-files-from-imf/" type="text/html">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://htp84.github.io/blog/posts/r-cleaning-excel-files-from-imf/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Henric Sundberg">
+<link rel="prev" href="../python-cleaning-excel-files-from-imf/" title="Python - Cleaning excel files from the International Monetary Fund" type="text/html">
+<meta property="og:site_name" content="Henric Sundberg">
+<meta property="og:title" content="R - Cleaning excel files from the International Monetary Fund">
+<meta property="og:url" content="https://htp84.github.io/blog/posts/r-cleaning-excel-files-from-imf/">
+<meta property="og:description" content="Often when I browse different publically available datasets on for example Kaggle I find most of them are already tidy. Sure, to use the data for machine learning you must do feature engineering, but ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-29T00:00:00Z">
+<meta property="article:tag" content="dplyr">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="tidyr">
+<meta property="article:tag" content="tidyverse">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -35,10 +45,10 @@ navbar-dark bg-dark
         <div class="collapse navbar-collapse" id="bs-navbar">
             <ul class="navbar-nav mr-auto">
 <li class="nav-item">
-<a href="#" class="nav-link">Home</a>
+<a href="../../index.html" class="nav-link">Home</a>
                 </li>
 <li class="nav-item">
-<a href="pages/about-me/" class="nav-link">About me</a>
+<a href="../../pages/about-me/" class="nav-link">About me</a>
                 </li>
 <li class="nav-item">
 <a href="https://github.com/htp84" class="nav-link">Github</a>
@@ -47,10 +57,10 @@ navbar-dark bg-dark
 <a href="https://www.linkedin.com/in/henric-sundberg-65260913b/" class="nav-link">LinkedIn</a>
                 </li>
 <li class="nav-item">
-<a href="archive.html" class="nav-link">Archives</a>
+<a href="../../archive.html" class="nav-link">Archives</a>
                 </li>
 <li class="nav-item">
-<a href="categories/index.html" class="nav-link">Tags</a>
+<a href="../../categories/index.html" class="nav-link">Tags</a>
 
                 
             </li>
@@ -65,23 +75,22 @@ navbar-dark bg-dark
         <!--Body content-->
         
         
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">R - Cleaning excel files from the International Monetary Fund</a></h1>
 
-    
-
-
-    
-<div class="postindex">
-    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/r-cleaning-excel-files-from-imf/" class="u-url">R - Cleaning excel files from the International Monetary Fund</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Henric Sundberg
+                    Henric Sundberg
             </span></p>
             <p class="dateline">
-            <a href="posts/r-cleaning-excel-files-from-imf/" rel="bookmark">
+            <a href="." rel="bookmark">
             <time class="published dt-published" datetime="2019-06-29T00:00:00Z" itemprop="datePublished" title="2019-06-29 00:00">2019-06-29 00:00</time></a>
             </p>
+            
+
         </div>
-    </header><div class="p-summary entry-summary">
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -115,7 +124,7 @@ navbar-dark bg-dark
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.-Setup-and-a-first-look-at-one-file">1. Setup and a first look at one file<a class="anchor-link" href="posts/r-cleaning-excel-files-from-imf/#1.-Setup-and-a-first-look-at-one-file">¶</a>
+<h3 id="1.-Setup-and-a-first-look-at-one-file">1. Setup and a first look at one file<a class="anchor-link" href="#1.-Setup-and-a-first-look-at-one-file">¶</a>
 </h3>
 <p>First I load the libraries I need. Below I list som examples of what I use the libraries for in this post. Follow the links to see more use cases.</p>
 <ul>
@@ -1021,7 +1030,7 @@ Cleaned data v2 (one file):
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.-Parse-and-clean-all-files">2. Parse and clean all files<a class="anchor-link" href="posts/r-cleaning-excel-files-from-imf/#2.-Parse-and-clean-all-files">¶</a>
+<h3 id="2.-Parse-and-clean-all-files">2. Parse and clean all files<a class="anchor-link" href="#2.-Parse-and-clean-all-files">¶</a>
 </h3>
 <p>Now the dataframe looks pretty good. But I have only imported one excel file. Let's summarise the steps above in one cell and parse all excel files. This can be done with a for loop iterating over the files list.</p>
 
@@ -1944,7 +1953,7 @@ Cleaned data v3 (all files):
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.-Merge-with-external-data">3. Merge with external data<a class="anchor-link" href="posts/r-cleaning-excel-files-from-imf/#3.-Merge-with-external-data">¶</a>
+<h3 id="3.-Merge-with-external-data">3. Merge with external data<a class="anchor-link" href="#3.-Merge-with-external-data">¶</a>
 </h3>
 <p>However, it would help the analysis if the dataframe contained more information about the country, for example, region. This link contains a csv with countries and their region. Let's look at the data.</p>
 
@@ -5315,7 +5324,7 @@ Countries with no match in region dataframe:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now the dataframe is tidy. Now I need to save it.</p>
-<h3 id="4.-Save-data">4. Save data<a class="anchor-link" href="posts/r-cleaning-excel-files-from-imf/#4.-Save-data">¶</a>
+<h3 id="4.-Save-data">4. Save data<a class="anchor-link" href="#4.-Save-data">¶</a>
 </h3>
 </div>
 </div>
@@ -5348,94 +5357,19 @@ Countries with no match in region dataframe:
 </div>
 </div>
     </div>
-    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/python-cleaning-excel-files-from-imf/" class="u-url">Python - Cleaning excel files from the International Monetary Fund</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Henric Sundberg
-            </span></p>
-            <p class="dateline">
-            <a href="posts/python-cleaning-excel-files-from-imf/" rel="bookmark">
-            <time class="published dt-published" datetime="2019-05-12T00:00:00Z" itemprop="datePublished" title="2019-05-12 00:00">2019-05-12 00:00</time></a>
-            </p>
-        </div>
-    </header><div class="p-summary entry-summary">
-    <div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Often when I browse different publically available datasets on for example <a href="https://www.kaggle.com/">Kaggle</a> I find most of them are already <a href="https://garrettgman.github.io/tidying/">tidy</a>. Sure, to use the data for machine learning you must do feature engineering, but most of the data cleaning is already done. I believe that this bad, since most of the data in the "real" world is messy. 
-</p>
-<p class="more"><a href="posts/python-cleaning-excel-files-from-imf/">Read more…</a></p>
-</div>
-</div>
-</div>
-    </div>
-    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/python-r-tsql-comparison-cleaning-data/" class="u-url">Python, R and TSQL comparison - Cleaning data</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Henric Sundberg
-            </span></p>
-            <p class="dateline">
-            <a href="posts/python-r-tsql-comparison-cleaning-data/" rel="bookmark">
-            <time class="published dt-published" datetime="2019-04-19T06:00:00Z" itemprop="datePublished" title="2019-04-19 06:00">2019-04-19 06:00</time><span class="updated"> (updated
-                    <time class="dt-updated" datetime="2019-05-02T08:10:00Z" itemprop="dateUpdated" title="2019-05-02 08:10">2019-05-02 08:10</time>)</span>
-            </a>
-            </p>
-        </div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p>This is the third and last part of a series of posts showing data wrangling code in Python, R and TSQL. This part show different options for cleaning data.<br></p>
-<p class="more"><a href="posts/python-r-tsql-comparison-cleaning-data/">Read more…</a></p>
-</div>
-    </div>
-    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/python-r-tsql-comparison-reading-and-writing-files/" class="u-url">Python, R and TSQL comparison - Reading and writing files</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Henric Sundberg
-            </span></p>
-            <p class="dateline">
-            <a href="posts/python-r-tsql-comparison-reading-and-writing-files/" rel="bookmark">
-            <time class="published dt-published" datetime="2019-03-30T00:00:00Z" itemprop="datePublished" title="2019-03-30 00:00">2019-03-30 00:00</time><span class="updated"> (updated
-                    <time class="dt-updated" datetime="2019-05-05T08:10:00Z" itemprop="dateUpdated" title="2019-05-05 08:10">2019-05-05 08:10</time>)</span>
-            </a>
-            </p>
-        </div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p>This is the second part of a series of posts showing data wrangling code in Python, R, and TSQL. This part shows read/write options for Excel and CSV. This is not directly applicable to SQL. Therefore, there is no column for TSQL in the table below.</p>
-<p class="more"><a href="posts/python-r-tsql-comparison-reading-and-writing-files/">Read more…</a></p>
-</div>
-    </div>
-    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/python-r-and-tsql-basic/" class="u-url">Python, R and TSQL - Basic</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Henric Sundberg
-            </span></p>
-            <p class="dateline">
-            <a href="posts/python-r-and-tsql-basic/" rel="bookmark">
-            <time class="published dt-published" datetime="2019-03-16T00:00:00Z" itemprop="datePublished" title="2019-03-16 00:00">2019-03-16 00:00</time><span class="updated"> (updated
-                    <time class="dt-updated" datetime="2019-05-05T08:10:00Z" itemprop="dateUpdated" title="2019-05-05 08:10">2019-05-05 08:10</time>)</span>
-            </a>
-            </p>
-        </div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p>This is the first part of a series of articles showing data wrangling code in Python, R and TSQL that produces equivalent result. In this article I show some basic operations. <br></p>
-<p class="more"><a href="posts/python-r-and-tsql-basic/">Read more…</a></p>
-</div>
-    </div>
-    </article>
-</div>
-
-
-
-
-
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/dplyr/" rel="tag">dplyr</a></li>
+            <li><a class="tag p-category" href="../../categories/r/" rel="tag">R</a></li>
+            <li><a class="tag p-category" href="../../categories/tidyr/" rel="tag">tidyr</a></li>
+            <li><a class="tag p-category" href="../../categories/tidyverse/" rel="tag">tidyverse</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../python-cleaning-excel-files-from-imf/" rel="prev" title="Python - Cleaning excel files from the International Monetary Fund">Previous post</a>
+            </li>
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
-        </script><!--End of body content--><footer id="footer">
+        </script></article><!--End of body content--><footer id="footer">
             Contents © 2019         <a href="mailto:henric.sundberg@gmail.com">Henric Sundberg</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          - Theme          <a href="https://bootswatch.com/yeti/" rel="nofollow">Yeti</a>
             
         </footer>
@@ -5443,7 +5377,7 @@ Countries with no match in region dataframe:
 </div>
 
 
-        <script src="assets/js/all-nocdn.js"></script><script src="assets/js/moment-with-locales.min.js"></script><!-- fancy dates --><script>
+        <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/moment-with-locales.min.js"></script><!-- fancy dates --><script>
         moment.locale("en");
         fancydates(2, "YYYY-MM-DD HH:mm");
         </script><!-- end fancy dates --><script>

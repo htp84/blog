@@ -6,20 +6,28 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>https://htp84.github.io/blog/categories/dplyr.xml</loc>
+  <lastmod>2019-06-29T14:16:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://htp84.github.io/blog/categories/pandas.xml</loc>
-  <lastmod>2019-05-13T19:19:00Z</lastmod>
+  <lastmod>2019-05-30T05:35:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://htp84.github.io/blog/categories/python.xml</loc>
-  <lastmod>2019-05-13T19:19:00Z</lastmod>
+  <lastmod>2019-05-30T05:35:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://htp84.github.io/blog/categories/r.xml</loc>
-  <lastmod>2019-05-13T19:19:00Z</lastmod>
+  <lastmod>2019-06-29T14:16:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://htp84.github.io/blog/categories/tidyr.xml</loc>
+  <lastmod>2019-06-29T14:16:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://htp84.github.io/blog/categories/tidyverse.xml</loc>
-  <lastmod>2019-05-13T19:19:00Z</lastmod>
+  <lastmod>2019-06-29T14:16:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://htp84.github.io/blog/categories/tsql.xml</loc>
@@ -31,10 +39,10 @@
  </sitemap>
  <sitemap>
   <loc>https://htp84.github.io/blog/rss.xml</loc>
-  <lastmod>2019-05-13T19:19:00Z</lastmod>
+  <lastmod>2019-06-29T14:16:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://htp84.github.io/blog/sitemap.xml</loc>
-  <lastmod>2019-05-13T19:19:00Z</lastmod>
+  <lastmod>2019-06-29T14:16:00Z</lastmod>
  </sitemap>
 </sitemapindex>
