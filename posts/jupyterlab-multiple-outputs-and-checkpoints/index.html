@@ -92,7 +92,7 @@ navbar-dark bg-dark
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p><a href="https://jupyterlab.readthedocs.io/en/stable/">Jupyter Lab</a> is an excellent tool for data analysis. However, there are two default settings that, in my opinion, are a bit annoying. </p>
+<p><a href="https://jupyterlab.readthedocs.io/en/stable/">Jupyter Lab</a> is an excellent tool for data analysis. However, there are two default settings that, in my opinion, are a bit annoying. <!-- TEASER_END --></p>
 <h3>1. Multiple outputs <sup><a href="https://ipython.org/ipython-doc/dev/config/intro.html">[1]</a><a href="https://stackoverflow.com/questions/36786722/how-to-display-full-output-in-jupyter-not-only-last-result">[2]</a></sup>
 </h3>
 <p>The first one is that it is not possible to show multiple outputs from a cell using the default settings. This can be fixed in at least two ways. The easiest solution is to put the following code in a cell in the notebook:</p>
@@ -104,7 +104,7 @@ navbar-dark bg-dark
 
 <p>This is a good solution but it must be done in <strong>every</strong> notebook, i.e. it is not a global setting. If you want this to apply to all notebooks you create you must do the following:</p>
 <ol>
-<li>Generate an ipython config file by running<br><code>bash
+<li>Generate an ipython config file by running<br><code>console
    ipython profile create</code><br>
    Two files, <em>ipython_config.py</em>, and <em>ipython_kernel_config.py</em> are created in the <em>.ipython</em> folder in your home folder. On Linux, the full path is probably something like this: <em>~/.ipython/profile_default/</em>. On Windows, the path probably looks something like this: <em>C:\Users\my_account\.ipython\profile_default</em>.</li>
 <li>Open the <em>ipython_config.py</em> file in a text editor of your choice. Look for <em>#c.InteractiveShell.ast_node_interactivity = 'last_expr'</em>. At the time of writing this option was at row 147.</li>
@@ -114,7 +114,7 @@ navbar-dark bg-dark
 </h3>
 <p>The second one is that when you create a notebook Jupyter creates a folder in the current working directory called <em>.ipynb_checkpoints</em>. In this folder, a checkpoint file is stored. I do not mind checkpoints per se, but I do not want it in my current working directory. Below I show how to specify a separate folder to store all checkpoint files.</p>
 <ol>
-<li>Generate a jupyter config file by running <br><code>bash
+<li>Generate a jupyter config file by running <br><code>console
    jupyter notebook --generate-config</code><br>
    One file, <em>jupyter_notebook_config.py</em>, is created in the <em>.jupyter</em> folder in your home folder. On Linux, the full path is probably something like this: <em>~/.jupyter</em>. On Windows, the path probably looks something like this: <em>C:\Users\my_account\.jupyter</em>.</li>
 <li>Open the <em>jupyter_notebook_config.py</em> file in an text editor of your choice and write the following:<br><code>python

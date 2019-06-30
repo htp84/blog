@@ -85,38 +85,7 @@ navbar-dark bg-dark
     </header><div class="p-summary entry-summary">
     <div>
 <p><a href="https://jupyterlab.readthedocs.io/en/stable/">Jupyter Lab</a> is an excellent tool for data analysis. However, there are two default settings that, in my opinion, are a bit annoying. </p>
-<h3>1. Multiple outputs <sup><a href="https://ipython.org/ipython-doc/dev/config/intro.html">[1]</a><a href="https://stackoverflow.com/questions/36786722/how-to-display-full-output-in-jupyter-not-only-last-result">[2]</a></sup>
-</h3>
-<p>The first one is that it is not possible to show multiple outputs from a cell using the default settings. This can be fixed in at least two ways. The easiest solution is to put the following code in a cell in the notebook:</p>
-<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
-
-<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">"all"</span>
-</pre>
-
-
-<p>This is a good solution but it must be done in <strong>every</strong> notebook, i.e. it is not a global setting. If you want this to apply to all notebooks you create you must do the following:</p>
-<ol>
-<li>Generate an ipython config file by running<br><code>bash
-   ipython profile create</code><br>
-   Two files, <em>ipython_config.py</em>, and <em>ipython_kernel_config.py</em> are created in the <em>.ipython</em> folder in your home folder. On Linux, the full path is probably something like this: <em>~/.ipython/profile_default/</em>. On Windows, the path probably looks something like this: <em>C:\Users\my_account\.ipython\profile_default</em>.</li>
-<li>Open the <em>ipython_config.py</em> file in a text editor of your choice. Look for <em>#c.InteractiveShell.ast_node_interactivity = 'last_expr'</em>. At the time of writing this option was at row 147.</li>
-<li>Remove the <em>#</em> and replace <em>last_expr</em> with <em>all</em>. Now jupyter always show multiple outputs.</li>
-</ol>
-<h3>2. Checkpoints <sup><a href="posts/jupyterlab-multiple-outputs-and-checkpoints/%5Bhej%5D(https:/stackoverflow.com/questions/32625939/ipython-notebook-where-is-jupyter-notebook-config-py-in-mac)">[3]</a><a href="posts/jupyterlab-multiple-outputs-and-checkpoints/%5Bd%C3%A5%5D(https:/stackoverflow.com/questions/51887758/is-there-a-way-to-disable-saving-to-checkpoints-for-jupyter-notebooks)">[4]</a></sup>
-</h3>
-<p>The second one is that when you create a notebook Jupyter creates a folder in the current working directory called <em>.ipynb_checkpoints</em>. In this folder, a checkpoint file is stored. I do not mind checkpoints per se, but I do not want it in my current working directory. Below I show how to specify a separate folder to store all checkpoint files.</p>
-<ol>
-<li>Generate a jupyter config file by running <br><code>bash
-   jupyter notebook --generate-config</code><br>
-   One file, <em>jupyter_notebook_config.py</em>, is created in the <em>.jupyter</em> folder in your home folder. On Linux, the full path is probably something like this: <em>~/.jupyter</em>. On Windows, the path probably looks something like this: <em>C:\Users\my_account\.jupyter</em>.</li>
-<li>Open the <em>jupyter_notebook_config.py</em> file in an text editor of your choice and write the following:<br><code>python
-   c.FileCheckpoints.checkpoint_dir = "/full/path/to/where/you/want/to/save/checkpoints"</code>
-</li>
-</ol>
-<p>[1] https://ipython.org/ipython-doc/dev/config/intro.html</p>
-<p>[2] https://stackoverflow.com/questions/36786722/how-to-display-full-output-in-jupyter-not-only-last-result</p>
-<p>[3] https://stackoverflow.com/questions/32625939/ipython-notebook-where-is-jupyter-notebook-config-py-in-mac</p>
-<p>[4] https://stackoverflow.com/questions/51887758/is-there-a-way-to-disable-saving-to-checkpoints-for-jupyter-notebooks</p>
+<p class="more"><a href="posts/jupyterlab-multiple-outputs-and-checkpoints/">Read more…</a></p>
 </div>
     </div>
     </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/r-cleaning-excel-files-from-imf/" class="u-url">R - Cleaning excel files from the International Monetary Fund</a></h1>
