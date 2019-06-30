@@ -14,6 +14,7 @@
 <link rel="canonical" href="https://htp84.github.io/blog/posts/r-cleaning-excel-files-from-imf/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Henric Sundberg">
 <link rel="prev" href="../python-cleaning-excel-files-from-imf/" title="Python - Cleaning excel files from the International Monetary Fund" type="text/html">
+<link rel="next" href="../jupyterlab-multiple-outputs-and-checkpoints/" title="JupyterLab - Multiple outputs and checkpoints" type="text/html">
 <meta property="og:site_name" content="Henric Sundberg">
 <meta property="og:title" content="R - Cleaning excel files from the International Monetary Fund">
 <meta property="og:url" content="https://htp84.github.io/blog/posts/r-cleaning-excel-files-from-imf/">
@@ -150,18 +151,17 @@ navbar-dark bg-dark
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="m">-1</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">purrr</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">tibble</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">janitor</span><span class="p">);</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">janitor</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -171,7 +171,7 @@ navbar-dark bg-dark
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">catn</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
@@ -200,11 +200,11 @@ navbar-dark bg-dark
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">catn</span><span class="p">(</span><span class="s">"Files:"</span><span class="p">)</span>
-<span class="n">files</span> <span class="o">&lt;-</span> <span class="nf">list.files</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="s">"\\.xlsx$"</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">&lt;-</span> <span class="nf">list.files</span><span class="p">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"../../../R/imf/"</span><span class="p">,</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">"\\.xlsx$"</span><span class="p">,</span> <span class="n">full.names</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 <span class="n">files</span>
 
 <span class="nf">catn</span><span class="p">(</span><span class="s">"Data from the first file:"</span><span class="p">)</span>
@@ -241,14 +241,14 @@ Files:
 
 <div class="output_html rendered_html output_subarea ">
 <ol class="list-inline">
-<li>'Prices_Production_and_Labor (1).xlsx'</li>
-	<li>'Prices_Production_and_Labor (2).xlsx'</li>
-	<li>'Prices_Production_and_Labor (3).xlsx'</li>
-	<li>'Prices_Production_and_Labor (4).xlsx'</li>
-	<li>'Prices_Production_and_Labor (5).xlsx'</li>
-	<li>'Prices_Production_and_Labor (6).xlsx'</li>
-	<li>'Prices_Production_and_Labor (7).xlsx'</li>
-	<li>'Prices_Production_and_Labor.xlsx'</li>
+<li>'../../../R/imf//Prices_Production_and_Labor (1).xlsx'</li>
+	<li>'../../../R/imf//Prices_Production_and_Labor (2).xlsx'</li>
+	<li>'../../../R/imf//Prices_Production_and_Labor (3).xlsx'</li>
+	<li>'../../../R/imf//Prices_Production_and_Labor (4).xlsx'</li>
+	<li>'../../../R/imf//Prices_Production_and_Labor (5).xlsx'</li>
+	<li>'../../../R/imf//Prices_Production_and_Labor (6).xlsx'</li>
+	<li>'../../../R/imf//Prices_Production_and_Labor (7).xlsx'</li>
+	<li>'../../../R/imf//Prices_Production_and_Labor.xlsx'</li>
 </ol>
 </div>
 
@@ -504,7 +504,7 @@ Data from the first file:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read_excel</span><span class="p">(</span><span class="n">files[1]</span><span class="p">)</span> <span class="c1"># parse the excel file</span>
@@ -780,14 +780,14 @@ Cleaned data v1 (one file) and shape:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As can be seen in the last row above, missing data is coded with three dots (...). This must be replaced with NaN. Also, in my opinion, the kpi column and all column names will look better if comma and spaces were replaced with underscores and if they were set to lowercase. Since I have added the kpi column I need to remove it again before renaming the columns. Otherwise, there will be a Value Error since there is a length mismatch between the cols list and the df columns. I reset the kpi column using the kpi variable set in the previous code cell. To clean the column names I use the <a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html">make_clean_names and clean_names</a> functions from janitor.</p>
+<p>As can be seen in the last row above, missing data is coded with three dots (...). This must be replaced with Na. Also, in my opinion, the kpi column and all column names will look better if comma and spaces were replaced with underscores and set to lowercase. Since I have added the kpi column I need to remove it again before renaming the columns. Otherwise, there will be a Value Error since there is a length mismatch between the cols list and the df columns. I reset the kpi column using the kpi variable set in the previous code cell. To clean the column names I use the <a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html">make_clean_names and clean_names</a> functions from janitor.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="s">"kpi"</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="nf">clean_names</span><span class="p">()</span>
@@ -1040,7 +1040,7 @@ Cleaned data v2 (one file):
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">financial_data</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">()</span>
@@ -1211,146 +1211,123 @@ Cleaned data v1 (all files) and shape:
 </thead>
 <tbody>
 <tr>
-<td>Eswatini, Kingdom of</td>
-<td>prices_consumer_price_index_all_items_index</td>
+<td>Netherlands Antilles</td>
+<td>prices_consumer_price_index_all_items_index      </td>
+<td>Units    </td>
+<td>NA      </td>
+<td>NA                </td>
+<td>106.742473941249  </td>
+<td>NA                </td>
+<td>NA                </td>
+<td>NA                </td>
+<td>107.675486551498  </td>
+<td>⋯</td>
+<td>NA                </td>
+<td>NA                </td>
+<td>NA                </td>
+<td>NA                </td>
+<td>NA              </td>
+<td>NA                </td>
+<td>NA</td>
+<td>NA                </td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>Serbia, Republic of </td>
+<td>unemployment_persons_number_of                   </td>
+<td>Thousands</td>
+<td>NA      </td>
+<td>774.87424999999996</td>
+<td>787.07166666666694</td>
+<td>778.57899999999995</td>
+<td>790.29200000000003</td>
+<td>792.34400000000005</td>
+<td>784.37400000000002</td>
+<td>⋯</td>
+<td>NA                </td>
+<td>NA                </td>
+<td>NA                </td>
+<td>NA                </td>
+<td>NA              </td>
+<td>NA                </td>
+<td>NA</td>
+<td>NA                </td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>Trinidad and Tobago </td>
+<td>prices_consumer_price_index_all_items_index      </td>
 <td>Units    </td>
 <td>2010=100</td>
-<td>122.09040253117   </td>
-<td>119.99946309364501</td>
-<td>118.83976446277801</td>
-<td>120.505386215811  </td>
-<td>120.653238602345  </td>
-<td>121.737608003397  </td>
+<td>120.811837601268  </td>
+<td>119.563210325074  </td>
+<td>119.239139123619  </td>
+<td>119.582273336924  </td>
+<td>119.86821851467801</td>
+<td>122.136716924864  </td>
 <td>⋯</td>
-<td>163.94451474232901</td>
-<td>163.81407877331799</td>
-<td>164.13674707866201</td>
-<td>163.991001789319  </td>
-<td>164.08477454748501</td>
-<td>164.334464899181  </td>
-<td>164.96166674413999</td>
-<td>164.75101432130799</td>
-<td>165.01966920170699</td>
-<td>165.11431670940399</td>
+<td>141.302497472048  </td>
+<td>141.17056236703201</td>
+<td>141.742281155434  </td>
+<td>141.698302787095  </td>
+<td>141.698302787095</td>
+<td>141.830237892111  </td>
+<td>NA</td>
+<td>142.48991341719099</td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <tr>
-<td>Germany             </td>
-<td>labor_force_persons_number_of              </td>
-<td>Thousands</td>
+<td>Moldova             </td>
+<td>labor_markets_unemployment_rate_percent          </td>
+<td>Units    </td>
 <td>NA      </td>
-<td>44453.416666666701</td>
-<td>44265             </td>
-<td>44259             </td>
-<td>44318             </td>
-<td>44218             </td>
-<td>44352.666666666701</td>
+<td>5.2000000000000002</td>
+<td>8.0999999999999996</td>
+<td>NA                </td>
+<td>NA                </td>
+<td>NA                </td>
+<td>4.7000000000000002</td>
 <td>⋯</td>
-<td>46139             </td>
-<td>46228             </td>
-<td>NA                </td>
-<td>46184             </td>
-<td>46274             </td>
 <td>NA                </td>
 <td>NA                </td>
 <td>NA                </td>
 <td>NA                </td>
+<td>NA              </td>
 <td>NA                </td>
+<td>NA</td>
+<td>NA                </td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <tr>
-<td>United Arab Emirates</td>
-<td>prices_consumer_price_index_all_items_index</td>
+<td>Nigeria             </td>
+<td>prices_consumer_price_index_all_items_index      </td>
 <td>Units    </td>
 <td>2010=100</td>
-<td>102.663561221631  </td>
-<td>102.03838610255001</td>
-<td>102.097926590081  </td>
-<td>101.95082656206201</td>
-<td>102.066405155506  </td>
-<td>102.31507425049   </td>
+<td>134.92464233800001</td>
+<td>131.25239078876899</td>
+<td>130.273123708974  </td>
+<td>131.28299288501299</td>
+<td>132.20105577231999</td>
+<td>133.792364776987  </td>
 <td>⋯</td>
-<td>116.71336508826001</td>
-<td>117.15349274632401</td>
-<td>116.971577834285  </td>
-<td>117.094607503872  </td>
-<td>117.264857792177  </td>
-<td>116.55526820680601</td>
-<td>115.65137520430901</td>
-<td>115.99923245229201</td>
-<td>115.65452337187899</td>
-<td>115.300369788757  </td>
+<td>236.209652658316  </td>
+<td>239.132055640098  </td>
+<td>244.20719393684399</td>
+<td>241.83942517945599</td>
+<td>244.374077677667</td>
+<td>246.40807895340799</td>
+<td>NA</td>
+<td>248.239507183695  </td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <tr>
-<td>Curaçao             </td>
-<td>unemployment_persons_number_of             </td>
-<td>Thousands</td>
-<td>NA      </td>
-<td>10                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>⋯</td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-</tr>
-<tr>
-<td>Russian Federation  </td>
-<td>employment_persons_number_of               </td>
-<td>Thousands</td>
-<td>NA      </td>
-<td>71391.666666666701</td>
-<td>70900             </td>
-<td>70700             </td>
-<td>71000             </td>
-<td>71000             </td>
-<td>71400             </td>
-<td>⋯</td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-</tr>
-<tr>
-<td>United Kingdom      </td>
-<td>employment_persons_number_of               </td>
-<td>Thousands</td>
-<td>NA      </td>
-<td>30050.568500000001</td>
-<td>29777.089333333297</td>
-<td>29771.93          </td>
-<td>29750.279999999999</td>
-<td>29809.058000000001</td>
-<td>29872.7103333333  </td>
-<td>⋯</td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-</tr>
-<tr>
-<td>Tanzania            </td>
-<td>employment_persons_number_of               </td>
+<td>Nigeria             </td>
+<td>employment_persons_number_of                     </td>
 <td>Thousands</td>
 <td>NA      </td>
 <td>NA                </td>
@@ -1364,81 +1341,104 @@ Cleaned data v1 (all files) and shape:
 <td>NA                </td>
 <td>NA                </td>
 <td>NA                </td>
+<td>NA              </td>
 <td>NA                </td>
+<td>NA</td>
 <td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <tr>
-<td>Mali                </td>
-<td>employment_persons_number_of               </td>
+<td>Philippines         </td>
+<td>unemployment_persons_number_of                   </td>
 <td>Thousands</td>
 <td>NA      </td>
+<td>2904.5            </td>
+<td>2894              </td>
 <td>NA                </td>
 <td>NA                </td>
 <td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
+<td>3087              </td>
 <td>⋯</td>
 <td>NA                </td>
 <td>NA                </td>
 <td>NA                </td>
 <td>NA                </td>
+<td>NA              </td>
 <td>NA                </td>
+<td>NA</td>
 <td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <tr>
-<td>New Zealand         </td>
-<td>prices_consumer_price_index_all_items_index</td>
+<td>San Marino          </td>
+<td>prices_consumer_price_index_all_items_index      </td>
 <td>Units    </td>
 <td>2010=100</td>
-<td>106.323136529614  </td>
-<td>105.670575668258  </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>105.85059131603499</td>
+<td>107.50670896130799</td>
+<td>106.854112056411  </td>
+<td>106.776642488346  </td>
+<td>106.887794477309  </td>
+<td>106.897899203579  </td>
+<td>107.271774075545  </td>
 <td>⋯</td>
+<td>112.44539392545801</td>
+<td>112.607069545768  </td>
+<td>113.04830925953   </td>
+<td>112.788954618617  </td>
+<td>113.263876753277</td>
+<td>113.092096406697  </td>
+<td>NA</td>
 <td>NA                </td>
-<td>NA                </td>
-<td>112.999462590446  </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>113.109813628132  </td>
-<td>NA                </td>
-<td>NA                </td>
-<td>NA                </td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <tr>
-<td>Ethiopia            </td>
-<td>prices_consumer_price_index_all_items_index</td>
+<td>Gabon               </td>
+<td>prices_consumer_price_index_all_items_index      </td>
 <td>Units    </td>
 <td>2010=100</td>
-<td>178.75916348807201</td>
-<td>171.74952788105901</td>
-<td>170.689608653693  </td>
-<td>171.74758279661   </td>
-<td>172.81139219287201</td>
-<td>175.606073211601  </td>
+<td>104.47464597723101</td>
+<td>103.226521248783  </td>
+<td>104.56312673209899</td>
+<td>102.389772289699  </td>
+<td>102.726664724553  </td>
+<td>102.210840700811  </td>
 <td>⋯</td>
-<td>278.91831824393802</td>
-<td>284.54405927008997</td>
-<td>288.59064492047997</td>
-<td>285.72842580191099</td>
-<td>288.39325049850902</td>
-<td>291.65025846101798</td>
+<td>119.293278872144  </td>
+<td>120.576922475503  </td>
+<td>120.89070202299099</td>
+<td>120.833651196175  </td>
+<td>121.004803676623</td>
+<td>120.833651196175  </td>
+<td>NA</td>
+<td>121.86056607886201</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>Czech Republic      </td>
+<td>prices_producer_price_index_all_commodities_index</td>
+<td>Units    </td>
+<td>2010=100</td>
+<td>108.66388308977   </td>
+<td>109.041282838622  </td>
+<td>109.041282838622  </td>
+<td>109.041282838622  </td>
+<td>109.041282838622  </td>
+<td>108.33617650403799</td>
+<td>⋯</td>
+<td>104.682225344412  </td>
+<td>105.30906501713299</td>
 <td>NA                </td>
+<td>105.622484853494  </td>
+<td>NA              </td>
 <td>NA                </td>
+<td>NA</td>
 <td>NA                </td>
-<td>NA                </td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 </tbody>
 </table>
@@ -1474,7 +1474,7 @@ Cleaned data v1 (all files) and shape:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">cols</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"kpi"</span><span class="p">,</span> <span class="s">"scale"</span><span class="p">,</span> <span class="s">"base_year"</span><span class="p">)</span>
@@ -1560,84 +1560,84 @@ Cleaned data v2 (all files) and shape:
 </thead>
 <tbody>
 <tr>
-<td>Slovak Republic                    </td>
-<td>prices_consumer_price_index_all_items_index      </td>
+<td>Emerging and Developing Asia       </td>
+<td>prices_consumer_price_index_all_items_index         </td>
 <td>Units    </td>
 <td>2010=100</td>
-<td>x2016m03</td>
-<td>108.032596041909  </td>
+<td>x2018m10</td>
+<td>138.16358841122101</td>
 </tr>
 <tr>
-<td>Venezuela, Republica Bolivariana de</td>
-<td>prices_consumer_price_index_all_items_index      </td>
+<td>Poland                             </td>
+<td>economic_activity_industrial_production_index       </td>
 <td>Units    </td>
 <td>2010=100</td>
-<td>x2016m02</td>
-<td>1480.6272575103501</td>
+<td>x2014m08</td>
+<td>104.90874239519999</td>
 </tr>
 <tr>
-<td>Tunisia                            </td>
-<td>labor_markets_unemployment_rate_percent          </td>
+<td>Ireland                            </td>
+<td>financial_market_prices_equities_end_of_period_index</td>
 <td>Units    </td>
 <td>NA      </td>
 <td>x2015m02</td>
-<td>NA                </td>
-</tr>
-<tr>
-<td>Italy                              </td>
-<td>prices_producer_price_index_all_commodities_index</td>
-<td>Units    </td>
-<td>2010=100</td>
-<td>x2015m09</td>
-<td>103.77194507213601</td>
-</tr>
-<tr>
-<td>Mongolia                           </td>
-<td>labor_force_persons_number_of                    </td>
-<td>Thousands</td>
-<td>NA      </td>
-<td>x2013m05</td>
-<td>NA                </td>
+<td>207.16890229108199</td>
 </tr>
 <tr>
 <td>Moldova                            </td>
-<td>labor_markets_unemployment_rate_percent          </td>
+<td>unemployment_persons_number_of                      </td>
+<td>Thousands</td>
+<td>NA      </td>
+<td>x2015m06</td>
+<td>NA                </td>
+</tr>
+<tr>
+<td>Timor-Leste, Dem. Rep. of          </td>
+<td>labor_markets_unemployment_rate_percent             </td>
 <td>Units    </td>
 <td>NA      </td>
+<td>x2013q2 </td>
+<td>NA                </td>
+</tr>
+<tr>
+<td>Venezuela, Republica Bolivariana de</td>
+<td>labor_force_persons_number_of                       </td>
+<td>Thousands</td>
+<td>NA      </td>
+<td>x2015q1 </td>
+<td>14169.2896666667  </td>
+</tr>
+<tr>
+<td>Algeria                            </td>
+<td>prices_producer_price_index_all_commodities_index   </td>
+<td>Units    </td>
+<td>2010=100</td>
+<td>x2017m12</td>
+<td>NA                </td>
+</tr>
+<tr>
+<td>Hungary                            </td>
+<td>prices_consumer_price_index_all_items_index         </td>
+<td>Units    </td>
+<td>2010=100</td>
 <td>x2014m04</td>
-<td>NA                </td>
+<td>111.879079354174  </td>
 </tr>
 <tr>
-<td>Palau                              </td>
-<td>prices_consumer_price_index_all_items_index      </td>
+<td>Austria                            </td>
+<td>prices_consumer_price_index_all_items_index         </td>
 <td>Units    </td>
 <td>2010=100</td>
-<td>x2016q4 </td>
-<td>117.204819277108  </td>
+<td>x2018m10</td>
+<td>117.320117431166  </td>
 </tr>
 <tr>
-<td>South Africa                       </td>
-<td>prices_consumer_price_index_all_items_index      </td>
+<td>Canada                             </td>
+<td>economic_activity_industrial_production_index       </td>
 <td>Units    </td>
 <td>2010=100</td>
-<td>x2014m09</td>
-<td>126.091586794462  </td>
-</tr>
-<tr>
-<td>Slovak Republic                    </td>
-<td>prices_consumer_price_index_all_items_index      </td>
-<td>Units    </td>
-<td>2010=100</td>
-<td>x2018m09</td>
-<td>112.755695992017  </td>
-</tr>
-<tr>
-<td>Japan                              </td>
-<td>prices_producer_price_index_all_commodities_index</td>
-<td>Units    </td>
-<td>2010=100</td>
-<td>x2018m09</td>
-<td>NA                </td>
+<td>x2016m09</td>
+<td>113.827341834934  </td>
 </tr>
 </tbody>
 </table>
@@ -1666,14 +1666,14 @@ Cleaned data v2 (all files) and shape:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The periods include quarters (e.g. 2013q1), year (e.g. 2015) and months (e.g. 2018m06). There is one problem, ther is a 'x' in front of all rows in period column. This problem is caused by gather but is easily fixed with <a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a> from stringr.  I also set the value column to numeric and count the number of null values in the value column.</p>
+<p>The periods include quarters (e.g. 2013q1), year (e.g. 2015) and months (e.g. 2018m06). There is one problem, there is a 'x' in front of all rows in period column. This problem is caused by gather but is easily fixed with <a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a> from stringr.  I also set the value column to numeric and count the number of null values in the value column.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">financial_data</span> <span class="o">&lt;-</span> <span class="n">financial_data</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">period</span> <span class="o">=</span> <span class="nf">str_replace</span><span class="p">(</span><span class="n">period</span><span class="p">,</span> <span class="s">"x"</span><span class="p">,</span> <span class="s">""</span><span class="p">))</span>
@@ -1750,14 +1750,14 @@ Number of nulls in the value column:
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There are 32141 rows with null values. One should always be careful when handling null values. But in this case, they are just in the way, so I will drop them and then control if there are any left.</p>
 <p>The period column is not optimal, it would be nice if one easily could distinguish the time period. Also, it would be nice if year and period (month, quarter) were separate columns. This can be accomplished with the custom functions.</p>
-<p>I do all the above operations based on the period column. Then I replace the old period column with the new column that specifies the current month/quarter. NaN is set if the data is yearly.</p>
+<p>I do all the above operations based on the period column. Then I replace the old period column with the new column that specifies the current month/quarter. NA is set if the data is yearly.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">columns</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"kpi"</span><span class="p">,</span> <span class="s">"value"</span><span class="p">)</span>
@@ -1849,84 +1849,84 @@ Cleaned data v3 (all files):
 </thead>
 <tbody>
 <tr>
-<td>Latvia                </td>
+<td>Netherlands       </td>
 <td>unemployment_persons_number_of                      </td>
-<td>2018</td>
+<td>2014</td>
+<td>10</td>
+<td>month  </td>
+<td>  634.000000</td>
+</tr>
+<tr>
+<td>Botswana          </td>
+<td>financial_market_prices_equities_end_of_period_index</td>
+<td>2017</td>
 <td>08</td>
 <td>month  </td>
-<td>  71.00000</td>
+<td>  139.588863</td>
 </tr>
 <tr>
-<td>Iceland               </td>
+<td>Canada            </td>
 <td>labor_force_persons_number_of                       </td>
-<td>2015</td>
+<td>2013</td>
+<td>3 </td>
+<td>quarter</td>
+<td>19303.200000</td>
+</tr>
+<tr>
+<td>Qatar             </td>
+<td>financial_market_prices_equities_end_of_period_index</td>
+<td>2013</td>
 <td>NA</td>
 <td>year   </td>
-<td> 191.36667</td>
+<td>  119.557803</td>
 </tr>
 <tr>
-<td>Bosnia and Herzegovina</td>
-<td>prices_producer_price_index_all_commodities_index   </td>
-<td>2017</td>
-<td>01</td>
+<td>Philippines       </td>
+<td>financial_market_prices_equities_end_of_period_index</td>
+<td>2016</td>
+<td>04</td>
 <td>month  </td>
-<td> 103.57303</td>
+<td>  145.803979</td>
 </tr>
 <tr>
-<td>Greece                </td>
-<td>employment_persons_number_of                        </td>
-<td>2015</td>
+<td>Japan             </td>
+<td>labor_markets_unemployment_rate_percent             </td>
+<td>2017</td>
+<td>NA</td>
+<td>year   </td>
+<td>    2.808333</td>
+</tr>
+<tr>
+<td>West Bank and Gaza</td>
+<td>prices_consumer_price_index_all_items_index         </td>
+<td>2014</td>
+<td>11</td>
+<td>month  </td>
+<td>  109.905851</td>
+</tr>
+<tr>
+<td>Thailand          </td>
+<td>labor_force_persons_number_of                       </td>
+<td>2018</td>
 <td>09</td>
 <td>month  </td>
-<td>3634.55836</td>
+<td>38391.080000</td>
 </tr>
 <tr>
-<td>Montenegro            </td>
-<td>labor_markets_unemployment_rate_percent             </td>
-<td>2015</td>
-<td>1 </td>
-<td>quarter</td>
-<td>  18.16065</td>
-</tr>
-<tr>
-<td>Singapore             </td>
-<td>financial_market_prices_equities_end_of_period_index</td>
-<td>2015</td>
-<td>01</td>
-<td>month  </td>
-<td> 114.76333</td>
-</tr>
-<tr>
-<td>Israel                </td>
-<td>economic_activity_industrial_production_index       </td>
-<td>2016</td>
-<td>1 </td>
-<td>quarter</td>
-<td> 112.43409</td>
-</tr>
-<tr>
-<td>Vietnam               </td>
+<td>Cabo Verde        </td>
 <td>prices_consumer_price_index_all_items_index         </td>
-<td>2017</td>
+<td>2013</td>
+<td>09</td>
+<td>month  </td>
+<td>  109.580618</td>
+</tr>
+<tr>
+<td>Egypt             </td>
+<td>prices_consumer_price_index_all_items_index         </td>
+<td>2015</td>
 <td>07</td>
 <td>month  </td>
-<td> 154.46347</td>
-</tr>
-<tr>
-<td>Tunisia               </td>
-<td>prices_producer_price_index_all_commodities_index   </td>
-<td>2018</td>
-<td>06</td>
-<td>month  </td>
-<td> 145.95121</td>
-</tr>
-<tr>
-<td>Euro Area             </td>
-<td>prices_producer_price_index_all_commodities_index   </td>
-<td>2016</td>
-<td>2 </td>
-<td>quarter</td>
-<td> 101.30793</td>
+<td>  155.661275</td>
 </tr>
 </tbody>
 </table>
@@ -1943,7 +1943,7 @@ Cleaned data v3 (all files):
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now there are two steps left until the dataframe is tidy. First, the kpi column needs to be spread/pivoted. This because the kpi column contains multiple kpis and every kpi is a variable. For this, I will use the <a href="https://tidyr.tidyverse.org/reference/spread.html">spread</a> function from tidyr.</p>
+<p>Now there are two steps left until the dataframe is tidy. First, the kpi column needs to be spread/pivoted. This because the kpi column contains multiple kpi's and every kpi is a variable. For this, I will use the <a href="https://tidyr.tidyverse.org/reference/spread.html">spread</a> function from tidyr.</p>
 <p>Also, the dataframe contains three different time periods (year, month, quarter). The time periods need to be split into three separate dataframes.</p>
 
 </div>
@@ -1963,7 +1963,7 @@ Cleaned data v3 (all files):
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [11]:</div>
+<div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">region</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">"https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv"</span><span class="p">)</span> <span class="o">%&gt;%</span> 
@@ -2062,131 +2062,131 @@ Regions:
 </thead>
 <tbody>
 <tr>
-<td>Cuba                                                </td>
-<td>CU</td>
-<td>CUB</td>
-<td>192</td>
-<td>ISO 3166-2:CU</td>
-<td>Americas</td>
-<td>Latin America and the Caribbean</td>
-<td>Caribbean      </td>
-<td>019</td>
-<td>419</td>
-<td>029</td>
-</tr>
-<tr>
-<td>Sudan                                               </td>
-<td>SD</td>
-<td>SDN</td>
-<td>729</td>
-<td>ISO 3166-2:SD</td>
-<td>Africa  </td>
-<td>Northern Africa                </td>
-<td>NA             </td>
-<td>002</td>
-<td>015</td>
-<td>NA </td>
-</tr>
-<tr>
-<td>United Kingdom of Great Britain and Northern Ireland</td>
-<td>GB</td>
-<td>GBR</td>
-<td>826</td>
-<td>ISO 3166-2:GB</td>
+<td>North Macedonia     </td>
+<td>MK</td>
+<td>MKD</td>
+<td>807</td>
+<td>ISO 3166-2:MK</td>
 <td>Europe  </td>
-<td>Northern Europe                </td>
-<td>NA             </td>
+<td>Southern Europe                </td>
+<td>NA            </td>
 <td>150</td>
-<td>154</td>
+<td>039</td>
 <td>NA </td>
 </tr>
 <tr>
-<td>British Indian Ocean Territory                      </td>
-<td>IO</td>
-<td>IOT</td>
-<td>086</td>
-<td>ISO 3166-2:IO</td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
-<td>Eastern Africa </td>
-<td>002</td>
-<td>202</td>
-<td>014</td>
-</tr>
-<tr>
-<td>Lesotho                                             </td>
-<td>LS</td>
-<td>LSO</td>
-<td>426</td>
-<td>ISO 3166-2:LS</td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
-<td>Southern Africa</td>
-<td>002</td>
-<td>202</td>
-<td>018</td>
-</tr>
-<tr>
-<td>Sint Maarten (Dutch part)                           </td>
-<td>SX</td>
-<td>SXM</td>
-<td>534</td>
-<td>ISO 3166-2:SX</td>
+<td>Haiti               </td>
+<td>HT</td>
+<td>HTI</td>
+<td>332</td>
+<td>ISO 3166-2:HT</td>
 <td>Americas</td>
 <td>Latin America and the Caribbean</td>
-<td>Caribbean      </td>
+<td>Caribbean     </td>
 <td>019</td>
 <td>419</td>
 <td>029</td>
 </tr>
 <tr>
-<td>Paraguay                                            </td>
-<td>PY</td>
-<td>PRY</td>
-<td>600</td>
-<td>ISO 3166-2:PY</td>
-<td>Americas</td>
-<td>Latin America and the Caribbean</td>
-<td>South America  </td>
-<td>019</td>
-<td>419</td>
-<td>005</td>
+<td>United Arab Emirates</td>
+<td>AE</td>
+<td>ARE</td>
+<td>784</td>
+<td>ISO 3166-2:AE</td>
+<td>Asia    </td>
+<td>Western Asia                   </td>
+<td>NA            </td>
+<td>142</td>
+<td>145</td>
+<td>NA </td>
 </tr>
 <tr>
-<td>Sao Tome and Principe                               </td>
-<td>ST</td>
-<td>STP</td>
-<td>678</td>
-<td>ISO 3166-2:ST</td>
+<td>Sierra Leone        </td>
+<td>SL</td>
+<td>SLE</td>
+<td>694</td>
+<td>ISO 3166-2:SL</td>
 <td>Africa  </td>
 <td>Sub-Saharan Africa             </td>
-<td>Middle Africa  </td>
+<td>Western Africa</td>
 <td>002</td>
 <td>202</td>
-<td>017</td>
+<td>011</td>
 </tr>
 <tr>
-<td>Bonaire, Sint Eustatius and Saba                    </td>
-<td>BQ</td>
-<td>BES</td>
-<td>535</td>
-<td>ISO 3166-2:BQ</td>
+<td>Guadeloupe          </td>
+<td>GP</td>
+<td>GLP</td>
+<td>312</td>
+<td>ISO 3166-2:GP</td>
 <td>Americas</td>
 <td>Latin America and the Caribbean</td>
-<td>Caribbean      </td>
+<td>Caribbean     </td>
 <td>019</td>
 <td>419</td>
 <td>029</td>
 </tr>
 <tr>
-<td>Dominica                                            </td>
-<td>DM</td>
-<td>DMA</td>
-<td>212</td>
-<td>ISO 3166-2:DM</td>
+<td>Trinidad and Tobago </td>
+<td>TT</td>
+<td>TTO</td>
+<td>780</td>
+<td>ISO 3166-2:TT</td>
 <td>Americas</td>
 <td>Latin America and the Caribbean</td>
-<td>Caribbean      </td>
+<td>Caribbean     </td>
+<td>019</td>
+<td>419</td>
+<td>029</td>
+</tr>
+<tr>
+<td>Tuvalu              </td>
+<td>TV</td>
+<td>TUV</td>
+<td>798</td>
+<td>ISO 3166-2:TV</td>
+<td>Oceania </td>
+<td>Polynesia                      </td>
+<td>NA            </td>
+<td>009</td>
+<td>061</td>
+<td>NA </td>
+</tr>
+<tr>
+<td>Germany             </td>
+<td>DE</td>
+<td>DEU</td>
+<td>276</td>
+<td>ISO 3166-2:DE</td>
+<td>Europe  </td>
+<td>Western Europe                 </td>
+<td>NA            </td>
+<td>150</td>
+<td>155</td>
+<td>NA </td>
+</tr>
+<tr>
+<td>Montenegro          </td>
+<td>ME</td>
+<td>MNE</td>
+<td>499</td>
+<td>ISO 3166-2:ME</td>
+<td>Europe  </td>
+<td>Southern Europe                </td>
+<td>NA            </td>
+<td>150</td>
+<td>039</td>
+<td>NA </td>
+</tr>
+<tr>
+<td>Curaçao             </td>
+<td>CW</td>
+<td>CUW</td>
+<td>531</td>
+<td>ISO 3166-2:CW</td>
+<td>Americas</td>
+<td>Latin America and the Caribbean</td>
+<td>Caribbean     </td>
 <td>019</td>
 <td>419</td>
 <td>029</td>
@@ -2319,14 +2319,14 @@ Regions and sub-regions:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There are many columns, but I find the name, region and sub-region columns most interesting. The name column can be used as a key when joining with the financial_data dataframe. Optimal would have been if the original data had contained one of the other columns since it would have increased the likelihood for a perfect match. But I have to take what I have got and deal with it.</p>
-<p>So, I filter the columns in the region dataframe and rename the name column to country. Then I use the <a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a> method from dplyr to join the financial_data and region dataframes using country as key. I create a new dataframe called financial_data2. This is a temporary dataframe, I will use it to see which countries in financial_data that do not have a match in the region dataframe.</p>
+<p>So, I filter the columns in the region dataframe and rename the name column to country. Then I use the <a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a> method from dplyr to join the financial_data and region dataframes using the country column as the key. I create a new dataframe called financial_data2. This is a temporary dataframe, I will use it to see which countries in financial_data that do not have a match in the region dataframe.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">region</span> <span class="o">&lt;-</span> <span class="n">region</span> <span class="o">%&gt;%</span> 
@@ -2389,52 +2389,52 @@ Cleaned region data:
 </thead>
 <tbody>
 <tr>
-<td>Venezuela (Bolivarian Republic of)          </td>
-<td>Americas</td>
-<td>Latin America and the Caribbean</td>
+<td>Hungary               </td>
+<td>Europe  </td>
+<td>Eastern Europe                 </td>
 </tr>
 <tr>
-<td>Saint Helena, Ascension and Tristan da Cunha</td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
-</tr>
-<tr>
-<td>Congo                                       </td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
-</tr>
-<tr>
-<td>Ethiopia                                    </td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
-</tr>
-<tr>
-<td>Barbados                                    </td>
-<td>Americas</td>
-<td>Latin America and the Caribbean</td>
-</tr>
-<tr>
-<td>South Georgia and the South Sandwich Islands</td>
-<td>Americas</td>
-<td>Latin America and the Caribbean</td>
-</tr>
-<tr>
-<td>Equatorial Guinea                           </td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
-</tr>
-<tr>
-<td>Maldives                                    </td>
+<td>Lebanon               </td>
 <td>Asia    </td>
-<td>Southern Asia                  </td>
+<td>Western Asia                   </td>
 </tr>
 <tr>
-<td>Korea, Republic of                          </td>
+<td>Israel                </td>
 <td>Asia    </td>
-<td>Eastern Asia                   </td>
+<td>Western Asia                   </td>
 </tr>
 <tr>
-<td>Spain                                       </td>
+<td>Yemen                 </td>
+<td>Asia    </td>
+<td>Western Asia                   </td>
+</tr>
+<tr>
+<td>Burundi               </td>
+<td>Africa  </td>
+<td>Sub-Saharan Africa             </td>
+</tr>
+<tr>
+<td>Faroe Islands         </td>
+<td>Europe  </td>
+<td>Northern Europe                </td>
+</tr>
+<tr>
+<td>Albania               </td>
+<td>Europe  </td>
+<td>Southern Europe                </td>
+</tr>
+<tr>
+<td>Paraguay              </td>
+<td>Americas</td>
+<td>Latin America and the Caribbean</td>
+</tr>
+<tr>
+<td>Papua New Guinea      </td>
+<td>Oceania </td>
+<td>Melanesia                      </td>
+</tr>
+<tr>
+<td>Bosnia and Herzegovina</td>
 <td>Europe  </td>
 <td>Southern Europe                </td>
 </tr>
@@ -2743,7 +2743,7 @@ Countries with no match in region dataframe:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [13]:</div>
+<div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">missing</span> <span class="o">&lt;-</span> <span class="n">financial_data2</span> <span class="o">%&gt;%</span>
@@ -2768,6 +2768,17 @@ Countries with no match in region dataframe:
 <div class="output_wrapper">
 <div class="output">
 
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Warning message:
+“Expected 1 pieces. Additional pieces discarded in 21 rows [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 15, 16, 17, 19, 20, 23, 30, 33, 36, ...].”</pre>
+</div>
+</div>
 
 <div class="output_area">
 
@@ -3005,7 +3016,7 @@ Countries with no match v2:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now I probably will get a match on for example Afghanistan, but many of the countries in the missing dataframe did not have a comma, hence I will not find a match for them. To solve this problem I will use the <a href="https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/agrep">agrep</a> function. This functions searches for approximate matches and returns a list of the best matches.</p>
+<p>Now I probably will get a match on for example Afghanistan, but many of the countries in the missing dataframe did not have a comma. Most likely, this means there is no match for them. To solve this problem I will use the <a href="https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/agrep">agrep</a> function. This functions searches for approximate matches and returns a list of the best matches.</p>
 <p>I map the result of agrep to a new column, country3, in the missing dataframe.</p>
 
 </div>
@@ -3013,7 +3024,7 @@ Countries with no match v2:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [14]:</div>
+<div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">matches</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
@@ -3376,14 +3387,14 @@ Countries with no match v3:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now it looks pretty good. But it is not perfect. There are some NA's and one error (Iran is not the same as France). I set the errors to NA. Then I create a new dataframe called corrected which contains all corrected countries. I then overwrite the missing dataframe with the countries that do have NaN in the country3 column.</p>
+<p>Now it looks pretty good. But it is not perfect. There are some NA's and one error (Iran is not the same as France). I set the errors to NA. Then I create a new dataframe called corrected which contains all corrected countries. I then overwrite the missing dataframe with the countries that do have NA in the country3 column.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [15]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">missing[16</span><span class="p">,</span> <span class="m">4</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="kc">NA</span> <span class="c1">#Iran</span>
@@ -3723,14 +3734,14 @@ Countries with no match v4:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are only 10 countries left. Below I try to find a match using the <a href="https://stringr.tidyverse.org/reference/str_sub.html">str_sub</a> function from stringr..  This functions works similarly to the LIKE keyword in SQL. I will only use the first 4 letters in the country2 column. The matches are stored in a character vector named matches. Then I replace the country3 column in the missing dataframe with this vector.</p>
+<p>There are only 10 countries left. Below I try to find a match using the <a href="https://stringr.tidyverse.org/reference/str_sub.html">str_sub</a> function from stringr.  This function works similarly to the LIKE keyword in SQL. I will only use the first 4 letters in the country2 column. The matches are stored in a character vector named matches. Then I replace the country3 column in the missing dataframe with this vector.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [16]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">matches</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
@@ -3870,7 +3881,7 @@ Countries with no match v5:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the output above it is visible that most countries find a correct match in the country3 column. However, French Territories: New Caledonia and Iran are not France and Netherlands Antilles is not Netherlands. Also, Kosovo and St. Lucia are NA.</p>
+<p>In the output above it is visible that most countries find a correct match in the country3 column. However, French Territories: New Caledonia and Iran are not France and Netherlands Antilles is not the Netherlands. Also, Kosovo and St. Lucia are NA.</p>
 <p>I replace the errors with NA and move the correct rows to the corrected dataframe. Then I remove all rows in the missing dataframe except for the NA's.</p>
 
 </div>
@@ -3878,7 +3889,7 @@ Countries with no match v5:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [17]:</div>
+<div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">missing[2</span><span class="p">,</span> <span class="m">4</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
@@ -4231,7 +4242,7 @@ Countries with no match v6:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [18]:</div>
+<div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">catn</span><span class="p">(</span><span class="s">"New Caledonia"</span><span class="p">)</span>
@@ -4439,14 +4450,14 @@ Antilles 2
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are matches on all countries except Kosovo and Antilles 1. In antilles 2 I use Curacao since it is the  main island. For Kosovo I use Serbia as proxy. This is good alternative since I only use the country3 as a key to join the financial_data dataframe with the region dataframe.</p>
+<p>There are matches on all countries except Kosovo and Antilles 1. In Antilles 2 I use Curacao since it is the  main island. For Kosovo, I use Serbia as a proxy. This is a good alternative since I only use the country3 as a key to join the financial_data dataframe with the region dataframe.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [19]:</div>
+<div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">missing[1</span><span class="p">,</span> <span class="m">4</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">"New Caledonia"</span>
@@ -4794,14 +4805,14 @@ Countries with no match v7:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To get correct regions* in the region dataframe, I join the corrected dataframe with the region dataframe. I join country3 in corrected on country in region</p>
+<p>To get correct regions in the region dataframe, I join the corrected dataframe with the region dataframe. I join the country3 column in the corrected dataframe on the country columns in the region dataframe.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">corrected</span> <span class="o">&lt;-</span> <span class="nf">left_join</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">corrected</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"country3"</span> <span class="o">=</span> <span class="s">"country"</span><span class="p">))</span> <span class="o">%&gt;%</span> 
@@ -4843,104 +4854,104 @@ Countries with no match v7:
 </thead>
 <tbody>
 <tr>
-<td>Palestine, State of       </td>
+<td>Saudi Arabia             </td>
 <td>Asia    </td>
 <td>Western Asia                   </td>
 </tr>
 <tr>
-<td>New Zealand               </td>
+<td>Philippines              </td>
+<td>Asia    </td>
+<td>South-eastern Asia             </td>
+</tr>
+<tr>
+<td>Samoa                    </td>
 <td>Oceania </td>
-<td>Australia and New Zealand      </td>
+<td>Polynesia                      </td>
 </tr>
 <tr>
-<td>Serbia, Republic of       </td>
-<td>Europe  </td>
-<td>Southern Europe                </td>
-</tr>
-<tr>
-<td>Egypt                     </td>
+<td>Zambia                   </td>
 <td>Africa  </td>
-<td>Northern Africa                </td>
+<td>Sub-Saharan Africa             </td>
 </tr>
 <tr>
-<td>United States             </td>
+<td>Uganda                   </td>
+<td>Africa  </td>
+<td>Sub-Saharan Africa             </td>
+</tr>
+<tr>
+<td>United States            </td>
 <td>Americas</td>
 <td>Northern America               </td>
 </tr>
 <tr>
-<td>Costa Rica                </td>
+<td>Pitcairn                 </td>
+<td>Oceania </td>
+<td>Polynesia                      </td>
+</tr>
+<tr>
+<td>Argentina                </td>
 <td>Americas</td>
 <td>Latin America and the Caribbean</td>
 </tr>
 <tr>
-<td>Eswatini                  </td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
+<td>Dominica                 </td>
+<td>Americas</td>
+<td>Latin America and the Caribbean</td>
 </tr>
 <tr>
-<td>Mozambique                </td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
-</tr>
-<tr>
-<td>Botswana                  </td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
-</tr>
-<tr>
-<td>Nauru                     </td>
-<td>Oceania </td>
-<td>Micronesia                     </td>
-</tr>
-<tr>
-<td>Iran (Islamic Republic of)</td>
-<td>Asia    </td>
-<td>Southern Asia                  </td>
-</tr>
-<tr>
-<td>Libya                     </td>
-<td>Africa  </td>
-<td>Northern Africa                </td>
-</tr>
-<tr>
-<td>Kosovo, Republic of       </td>
-<td>Europe  </td>
-<td>Southern Europe                </td>
-</tr>
-<tr>
-<td>Taiwan, Province of China </td>
-<td>Asia    </td>
-<td>Eastern Asia                   </td>
-</tr>
-<tr>
-<td>Myanmar                   </td>
-<td>Asia    </td>
-<td>South-eastern Asia             </td>
-</tr>
-<tr>
-<td>Afghanistan               </td>
-<td>Asia    </td>
-<td>Southern Asia                  </td>
-</tr>
-<tr>
-<td>Cocos (Keeling) Islands   </td>
-<td>Oceania </td>
-<td>Australia and New Zealand      </td>
-</tr>
-<tr>
-<td>Malaysia                  </td>
-<td>Asia    </td>
-<td>South-eastern Asia             </td>
-</tr>
-<tr>
-<td>Armenia                   </td>
+<td>Kuwait                   </td>
 <td>Asia    </td>
 <td>Western Asia                   </td>
 </tr>
 <tr>
-<td>Denmark                   </td>
+<td>Mali                     </td>
+<td>Africa  </td>
+<td>Sub-Saharan Africa             </td>
+</tr>
+<tr>
+<td>Virgin Islands (U.S.)    </td>
+<td>Americas</td>
+<td>Latin America and the Caribbean</td>
+</tr>
+<tr>
+<td>Switzerland              </td>
 <td>Europe  </td>
-<td>Northern Europe                </td>
+<td>Western Europe                 </td>
+</tr>
+<tr>
+<td>Panama                   </td>
+<td>Americas</td>
+<td>Latin America and the Caribbean</td>
+</tr>
+<tr>
+<td>Romania                  </td>
+<td>Europe  </td>
+<td>Eastern Europe                 </td>
+</tr>
+<tr>
+<td>Bosnia and Herzegovina   </td>
+<td>Europe  </td>
+<td>Southern Europe                </td>
+</tr>
+<tr>
+<td>Serbia                   </td>
+<td>Europe  </td>
+<td>Southern Europe                </td>
+</tr>
+<tr>
+<td>Somalia                  </td>
+<td>Africa  </td>
+<td>Sub-Saharan Africa             </td>
+</tr>
+<tr>
+<td>Taiwan, Province of China</td>
+<td>Asia    </td>
+<td>Eastern Asia                   </td>
+</tr>
+<tr>
+<td>Turks and Caicos Islands </td>
+<td>Americas</td>
+<td>Latin America and the Caribbean</td>
 </tr>
 </tbody>
 </table>
@@ -4964,7 +4975,7 @@ Countries with no match v7:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">financial_data2</span> <span class="o">&lt;-</span> <span class="nf">left_join</span><span class="p">(</span><span class="n">financial_data</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">"country"</span><span class="p">))</span>
@@ -5076,14 +5087,14 @@ Countries with no match in region dataframe:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now I need to spread the financial dataframe to get all the kpis in separate columns. I only use the time period month. Personally, I like to have a column that contains both year and period. Therefore I create a new column called year_period. This column is based on the year and month column. To do thies I use the <a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a> function from dplyr in combination with the <a href="https://tidyr.tidyverse.org/reference/unite.html">unite</a> function from tidyr.</p>
+<p>Now I need to spread the financial dataframe to get all the kpi's in separate columns. I only use the time period month. Personally, I like to have a column that contains both year and period. Therefore I create a new column called year_period. This column is based on the year and month column. To do this I use the <a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a> function from dplyr in combination with the <a href="https://tidyr.tidyverse.org/reference/unite.html">unite</a> function from tidyr.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [22]:</div>
+<div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">imf</span> <span class="o">&lt;-</span> <span class="n">financial_data2</span> <span class="o">%&gt;%</span> <span class="nf">spread</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="n">kpi</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">)</span> <span class="o">%&gt;%</span> 
@@ -5150,164 +5161,164 @@ Countries with no match in region dataframe:
 </thead>
 <tbody>
 <tr>
-<td>Paraguay                        </td>
-<td>2018</td>
-<td>09</td>
-<td>2018-09</td>
+<td>El Salvador              </td>
+<td>2017</td>
+<td>10</td>
+<td>2017-10</td>
 <td>Americas</td>
 <td>Latin America and the Caribbean</td>
-<td>NA</td>
-<td>NA</td>
+<td>109.55846</td>
+<td>   NA</td>
 <td>      NA</td>
-<td>NA</td>
-<td>NA</td>
-<td>140.4316</td>
-<td>      NA</td>
-<td>  NA</td>
+<td>   NA</td>
+<td> NA</td>
+<td>110.1523</td>
+<td>103.1882</td>
+<td>    NA</td>
 </tr>
 <tr>
-<td>Timor-Leste, Dem. Rep. of       </td>
-<td>2016</td>
-<td>03</td>
-<td>2016-03</td>
-<td>Asia    </td>
-<td>South-eastern Asia             </td>
-<td>NA</td>
-<td>NA</td>
-<td>      NA</td>
-<td>NA</td>
-<td>NA</td>
-<td>141.1412</td>
-<td>      NA</td>
-<td>  NA</td>
-</tr>
-<tr>
-<td>Curaçao                         </td>
-<td>2015</td>
-<td>03</td>
-<td>2015-03</td>
-<td>Americas</td>
-<td>Latin America and the Caribbean</td>
-<td>NA</td>
-<td>NA</td>
-<td>      NA</td>
-<td>NA</td>
-<td>NA</td>
-<td>107.0632</td>
-<td>      NA</td>
-<td>  NA</td>
-</tr>
-<tr>
-<td>Suriname                        </td>
+<td>Armenia, Republic of     </td>
 <td>2013</td>
 <td>07</td>
 <td>2013-07</td>
-<td>Americas</td>
-<td>Latin America and the Caribbean</td>
-<td>NA</td>
-<td>NA</td>
-<td>      NA</td>
-<td>NA</td>
-<td>NA</td>
-<td>126.6754</td>
-<td>      NA</td>
-<td>  NA</td>
-</tr>
-<tr>
-<td>Cameroon                        </td>
-<td>2015</td>
-<td>02</td>
-<td>2015-02</td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
-<td>NA</td>
-<td>NA</td>
-<td>      NA</td>
-<td>NA</td>
-<td>NA</td>
-<td>111.8387</td>
-<td>      NA</td>
-<td>  NA</td>
-</tr>
-<tr>
-<td>Armenia, Republic of            </td>
-<td>2015</td>
-<td>04</td>
-<td>2015-04</td>
 <td>Asia    </td>
 <td>Western Asia                   </td>
-<td>NA</td>
-<td>NA</td>
+<td>       NA</td>
+<td>   NA</td>
 <td>      NA</td>
-<td>NA</td>
-<td>NA</td>
-<td>127.1319</td>
-<td>134.4266</td>
-<td>74.2</td>
+<td>   NA</td>
+<td> NA</td>
+<td>116.6198</td>
+<td>119.6779</td>
+<td>  57.9</td>
 </tr>
 <tr>
-<td>Slovak Republic                 </td>
-<td>2018</td>
-<td>12</td>
-<td>2018-12</td>
-<td>Europe  </td>
-<td>Eastern Europe                 </td>
-<td>NA</td>
-<td>NA</td>
-<td>      NA</td>
-<td>NA</td>
-<td>NA</td>
-<td>112.6227</td>
-<td>      NA</td>
-<td>  NA</td>
-</tr>
-<tr>
-<td>Burundi                         </td>
-<td>2013</td>
-<td>11</td>
-<td>2013-11</td>
-<td>Africa  </td>
-<td>Sub-Saharan Africa             </td>
-<td>NA</td>
-<td>NA</td>
-<td>      NA</td>
-<td>NA</td>
-<td>NA</td>
-<td>141.7430</td>
-<td>      NA</td>
-<td>  NA</td>
-</tr>
-<tr>
-<td>Lao People's Democratic Republic</td>
-<td>2017</td>
-<td>12</td>
-<td>2017-12</td>
-<td>Asia    </td>
-<td>South-eastern Asia             </td>
-<td>NA</td>
-<td>NA</td>
-<td>      NA</td>
-<td>NA</td>
-<td>NA</td>
-<td>129.4961</td>
-<td>      NA</td>
-<td>  NA</td>
-</tr>
-<tr>
-<td>Sri Lanka                       </td>
+<td>Iran, Islamic Republic of</td>
 <td>2014</td>
-<td>12</td>
-<td>2014-12</td>
+<td>05</td>
+<td>2014-05</td>
 <td>Asia    </td>
 <td>Southern Asia                  </td>
-<td>NA</td>
-<td>NA</td>
-<td>109.9924</td>
-<td>NA</td>
-<td>NA</td>
-<td>130.3358</td>
+<td>       NA</td>
+<td>   NA</td>
 <td>      NA</td>
-<td>  NA</td>
+<td>   NA</td>
+<td> NA</td>
+<td>241.6339</td>
+<td>276.9071</td>
+<td>    NA</td>
+</tr>
+<tr>
+<td>Myanmar                  </td>
+<td>2018</td>
+<td>11</td>
+<td>2018-11</td>
+<td>Asia    </td>
+<td>South-eastern Asia             </td>
+<td>       NA</td>
+<td>   NA</td>
+<td>      NA</td>
+<td>   NA</td>
+<td> NA</td>
+<td>160.9204</td>
+<td>      NA</td>
+<td>    NA</td>
+</tr>
+<tr>
+<td>Cambodia                 </td>
+<td>2015</td>
+<td>06</td>
+<td>2015-06</td>
+<td>Asia    </td>
+<td>South-eastern Asia             </td>
+<td>       NA</td>
+<td>   NA</td>
+<td>      NA</td>
+<td>   NA</td>
+<td> NA</td>
+<td>117.4136</td>
+<td>      NA</td>
+<td>    NA</td>
+</tr>
+<tr>
+<td>Fiji                     </td>
+<td>2017</td>
+<td>06</td>
+<td>2017-06</td>
+<td>Oceania </td>
+<td>Melanesia                      </td>
+<td>       NA</td>
+<td>   NA</td>
+<td>187.3843</td>
+<td>   NA</td>
+<td> NA</td>
+<td>124.1257</td>
+<td>      NA</td>
+<td>    NA</td>
+</tr>
+<tr>
+<td>Japan                    </td>
+<td>2016</td>
+<td>08</td>
+<td>2016-08</td>
+<td>Asia    </td>
+<td>Eastern Asia                   </td>
+<td> 92.69228</td>
+<td>64890</td>
+<td>      NA</td>
+<td>67020</td>
+<td>3.2</td>
+<td>103.2893</td>
+<td> 98.5542</td>
+<td>2120.0</td>
+</tr>
+<tr>
+<td>West Bank and Gaza       </td>
+<td>2014</td>
+<td>10</td>
+<td>2014-10</td>
+<td>Asia    </td>
+<td>Western Asia                   </td>
+<td>       NA</td>
+<td>   NA</td>
+<td>      NA</td>
+<td>   NA</td>
+<td> NA</td>
+<td>109.8241</td>
+<td>      NA</td>
+<td>    NA</td>
+</tr>
+<tr>
+<td>Djibouti                 </td>
+<td>2018</td>
+<td>09</td>
+<td>2018-09</td>
+<td>Africa  </td>
+<td>Sub-Saharan Africa             </td>
+<td>       NA</td>
+<td>   NA</td>
+<td>      NA</td>
+<td>   NA</td>
+<td> NA</td>
+<td>116.1368</td>
+<td>      NA</td>
+<td>    NA</td>
+</tr>
+<tr>
+<td>Montserrat               </td>
+<td>2015</td>
+<td>08</td>
+<td>2015-08</td>
+<td>Americas</td>
+<td>Latin America and the Caribbean</td>
+<td>       NA</td>
+<td>   NA</td>
+<td>      NA</td>
+<td>   NA</td>
+<td> NA</td>
+<td>110.3699</td>
+<td>      NA</td>
+<td>    NA</td>
 </tr>
 </tbody>
 </table>
@@ -5332,23 +5343,10 @@ Countries with no match in region dataframe:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [24]:</div>
+<div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">write.csv</span><span class="p">(</span><span class="n">imf</span><span class="p">,</span> <span class="s">"imf_monthly_r.csv"</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">write.csv</span><span class="p">(</span><span class="n">imf</span><span class="p">,</span> <span class="s">"../../../R/imf/imf_monthly_r.csv"</span><span class="p">,)</span>
 </pre></div>
 
     </div>
@@ -5367,6 +5365,9 @@ Countries with no match in region dataframe:
 <ul class="pager hidden-print">
 <li class="previous">
                 <a href="../python-cleaning-excel-files-from-imf/" rel="prev" title="Python - Cleaning excel files from the International Monetary Fund">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../jupyterlab-multiple-outputs-and-checkpoints/" rel="next" title="JupyterLab - Multiple outputs and checkpoints">Next post</a>
             </li>
         </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});

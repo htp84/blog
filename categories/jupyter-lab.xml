@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Henric Sundberg (Posts about Jupyter Lab)</title><link>https://htp84.github.io/blog/</link><description></description><atom:link href="https://htp84.github.io/blog/categories/jupyter-lab.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2019 &lt;a href="mailto:henric.sundberg@gmail.com"&gt;Henric Sundberg&lt;/a&gt; </copyright><lastBuildDate>Sun, 30 Jun 2019 12:27:17 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>JupyterLab - Multiple outputs and checkpoints</title><link>https://htp84.github.io/blog/posts/jupyterlab-multiple-outputs-and-checkpoints/</link><dc:creator>Henric Sundberg</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;a href="https://jupyterlab.readthedocs.io/en/stable/"&gt;Jupyter Lab&lt;/a&gt; is an excellent tool for data analysis. However, there are two default settings that, in my opinion, are a bit annoying. &lt;/p&gt;
+&lt;h3&gt;1. Multiple outputs &lt;sup&gt;&lt;a href="https://ipython.org/ipython-doc/dev/config/intro.html"&gt;[1]&lt;/a&gt;&lt;a href="https://stackoverflow.com/questions/36786722/how-to-display-full-output-in-jupyter-not-only-last-result"&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;p&gt;The first one is that it is not possible to show multiple outputs from a cell using the default settings. This can be fixed in at least two ways. The easiest solution is to put the following code in a cell in the notebook:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.core.interactiveshell&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;InteractiveShell&lt;/span&gt;
+
+&lt;span class="n"&gt;InteractiveShell&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ast_node_interactivity&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"all"&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;This is a good solution but it must be done in &lt;strong&gt;every&lt;/strong&gt; notebook, i.e. it is not a global setting. If you want this to apply to all notebooks you create you must do the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Generate an ipython config file by running&lt;br&gt;
+&lt;code&gt;bash
+   ipython profile create&lt;/code&gt;&lt;br&gt;
+   Two files, &lt;em&gt;ipython_config.py&lt;/em&gt;, and &lt;em&gt;ipython_kernel_config.py&lt;/em&gt; are created in the &lt;em&gt;.ipython&lt;/em&gt; folder in your home folder. On Linux, the full path is probably something like this: &lt;em&gt;~/.ipython/profile_default/&lt;/em&gt;. On Windows, the path probably looks something like this: &lt;em&gt;C:\Users\my_account\.ipython\profile_default&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Open the &lt;em&gt;ipython_config.py&lt;/em&gt; file in a text editor of your choice. Look for &lt;em&gt;#c.InteractiveShell.ast_node_interactivity = 'last_expr'&lt;/em&gt;. At the time of writing this option was at row 147.&lt;/li&gt;
+&lt;li&gt;Remove the &lt;em&gt;#&lt;/em&gt; and replace &lt;em&gt;last_expr&lt;/em&gt; with &lt;em&gt;all&lt;/em&gt;. Now jupyter always show multiple outputs.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;2. Checkpoints &lt;sup&gt;&lt;a href="https://htp84.github.io/blog/posts/jupyterlab-multiple-outputs-and-checkpoints/%5Bhej%5D(https:/stackoverflow.com/questions/32625939/ipython-notebook-where-is-jupyter-notebook-config-py-in-mac)"&gt;[3]&lt;/a&gt;&lt;a href="https://htp84.github.io/blog/posts/jupyterlab-multiple-outputs-and-checkpoints/%5Bd%C3%A5%5D(https:/stackoverflow.com/questions/51887758/is-there-a-way-to-disable-saving-to-checkpoints-for-jupyter-notebooks)"&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;p&gt;The second one is that when you create a notebook Jupyter creates a folder in the current working directory called &lt;em&gt;.ipynb_checkpoints&lt;/em&gt;. In this folder, a checkpoint file is stored. I do not mind checkpoints per se, but I do not want it in my current working directory. Below I show how to specify a separate folder to store all checkpoint files.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Generate a jupyter config file by running &lt;br&gt;
+&lt;code&gt;bash
+   jupyter notebook --generate-config&lt;/code&gt;&lt;br&gt;
+   One file, &lt;em&gt;jupyter_notebook_config.py&lt;/em&gt;, is created in the &lt;em&gt;.jupyter&lt;/em&gt; folder in your home folder. On Linux, the full path is probably something like this: &lt;em&gt;~/.jupyter&lt;/em&gt;. On Windows, the path probably looks something like this: &lt;em&gt;C:\Users\my_account\.jupyter&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Open the &lt;em&gt;jupyter_notebook_config.py&lt;/em&gt; file in an text editor of your choice and write the following:&lt;br&gt;
+&lt;code&gt;python
+   c.FileCheckpoints.checkpoint_dir = "/full/path/to/where/you/want/to/save/checkpoints"&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;[1] https://ipython.org/ipython-doc/dev/config/intro.html&lt;/p&gt;
+&lt;p&gt;[2] https://stackoverflow.com/questions/36786722/how-to-display-full-output-in-jupyter-not-only-last-result&lt;/p&gt;
+&lt;p&gt;[3] https://stackoverflow.com/questions/32625939/ipython-notebook-where-is-jupyter-notebook-config-py-in-mac&lt;/p&gt;
+&lt;p&gt;[4] https://stackoverflow.com/questions/51887758/is-there-a-way-to-disable-saving-to-checkpoints-for-jupyter-notebooks&lt;/p&gt;&lt;/div&gt;</description><category>Jupyter Lab</category><category>Python</category><guid>https://htp84.github.io/blog/posts/jupyterlab-multiple-outputs-and-checkpoints/</guid><pubDate>Sun, 30 Jun 2019 06:40:12 GMT</pubDate></item></channel></rss>

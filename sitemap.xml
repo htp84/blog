@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://htp84.github.io/blog/</loc>
-  <lastmod>2019-05-05T12:33:00Z</lastmod>
+  <lastmod>2019-06-30T12:27:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/2019/</loc>
@@ -15,15 +15,19 @@
  </url>
  <url>
   <loc>https://htp84.github.io/blog/archive.html</loc>
-  <lastmod>2019-06-29T14:16:00Z</lastmod>
+  <lastmod>2019-06-30T12:27:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/categories/</loc>
-  <lastmod>2019-06-29T14:16:00Z</lastmod>
+  <lastmod>2019-06-30T12:27:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/categories/dplyr/</loc>
   <lastmod>2019-06-29T14:16:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://htp84.github.io/blog/categories/jupyter-lab/</loc>
+  <lastmod>2019-06-30T12:27:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/categories/pandas/</loc>
@@ -54,12 +58,20 @@
   <lastmod>2019-04-28T11:02:00Z</lastmod>
  </url>
  <url>
+  <loc>https://htp84.github.io/blog/index-1.html</loc>
+  <lastmod>2019-06-30T12:27:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://htp84.github.io/blog/listings/</loc>
   <lastmod>2019-04-28T11:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/pages/about-me/</loc>
   <lastmod>2019-05-01T13:00:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://htp84.github.io/blog/posts/jupyterlab-multiple-outputs-and-checkpoints/</loc>
+  <lastmod>2019-06-30T12:27:00Z</lastmod>
  </url>
  <url>
   <loc>https://htp84.github.io/blog/posts/python-cleaning-excel-files-from-imf/</loc>
