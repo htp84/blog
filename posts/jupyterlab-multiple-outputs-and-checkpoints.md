@@ -43,12 +43,12 @@ The second one is that when you create a notebook Jupyter creates a folder in th
 <code style="background-color:#cccccc; text-align:left; vertical-align: middle; padding:auto;">c.FileCheckpoints.checkpoint_dir = "/full/path/to/where/you/want/to/save/checkpoints</code>
 Save the file and now all checkpoints files are saved at the given path.
 
-[1] <https://ipython.org/ipython-doc/dev/config/intro.html>
+\[1\] <https://ipython.org/ipython-doc/dev/config/intro.html>
 
-[2] <https://stackoverflow.com/questions/36786722/how-to-display-full-output-in-jupyter-not-only-last-result>
+\[2\] <https://stackoverflow.com/questions/36786722/how-to-display-full-output-in-jupyter-not-only-last-result>
 
-[3] <https://stackoverflow.com/questions/32625939/ipython-notebook-where-is-jupyter-notebook-config-py-in-mac>
+\[3\] <https://stackoverflow.com/questions/32625939/ipython-notebook-where-is-jupyter-notebook-config-py-in-mac>
 
-[4] <https://stackoverflow.com/questions/51887758/is-there-a-way-to-disable-saving-to-checkpoints-for-jupyter-notebooks>
+\[4\] <https://stackoverflow.com/questions/51887758/is-there-a-way-to-disable-saving-to-checkpoints-for-jupyter-notebooks>
 
 
